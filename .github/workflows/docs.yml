@@ -1,10 +1,12 @@
 name: Deploy Documentation
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # Desabilitado temporariamente para evitar conflito com Storybook
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
+  workflow_dispatch: # Permite execução manual
 
 jobs:
   build-and-deploy:
