@@ -1,0 +1,160 @@
+:root {
+  --led-surface-primary: #1f2453;
+  --led-surface-standard: #fafafa;
+  --led-surface-grey: #dadada;
+  --led-surface-primary-light: #9da5e8;
+  --led-surface-secondary: #ffaa00;
+  --led-surface-secondary-light: #ffefc2;
+  --led-surface-error: #e5102e;
+  --led-surface-error-light: #fab3bd;
+  --led-surface-sucess: #2a613d;
+  --led-surface-sucess-light: #98d2ac;
+  --led-surface-warning: #e69900;
+  --led-surface-warning-light: #ffdd8a;
+  --led-surface-info: #565fcc;
+  --led-surface-info-light: #9da5e8;
+  --led-surface-hover: #fafafa;
+  --led-border-size-s: 1px;
+  --led-border-size-m: 2px;
+  --led-border-size-l: 4px;
+  --led-border-radius-s: 4px;
+  --led-border-radius-m: 8px;
+  --led-border-radius-l: 16px;
+  --led-padding-empty: px;
+  --led-padding-xs: 4px;
+  --led-padding-s: 8px;
+  --led-padding-sm: 12px;
+  --led-padding-m: 16px;
+  --led-padding-ml: 20px;
+  --led-padding-l: 24px;
+  --led-padding-xl: 32px;
+  --led-padding-2xl: 40px;
+  --led-gap-empty: px;
+  --led-gap-xs: 4px;
+  --led-gap-s: 8px;
+  --led-gap-sm: 12px;
+  --led-gap-m: 16px;
+  --led-gap-l: 24px;
+  --led-gap-xl: 28px;
+  --led-gap-2xl: 32px;
+  --led-margin-empty: px;
+  --led-margin-xs: 4px;
+  --led-margin-s: 8px;
+  --led-margin-sm: 12px;
+  --led-margin-m: 16px;
+  --led-margin-ml: 20px;
+  --led-margin-l: 24px;
+  --led-margin-xl: 32px;
+  --led-content-dark: #1f1f1f;
+  --led-content-light: #fafafa;
+  --led-content-primary: #1f2453;
+  --led-content-primary-light: #9da5e8;
+  --led-content-secondary: #ffaa00;
+  --led-content-secondary-light: #ffefc2;
+  --led-content-error: #e5102e;
+  --led-content-error-light: #fab3bd;
+  --led-content-sucess: #2a613d;
+  --led-content-sucess-light: #98d2ac;
+  --led-content-warning: #e69900;
+  --led-content-warning-light: #ffdd8a;
+  --led-content-info: #565fcc;
+  --led-content-info-light: #9da5e8;
+  --led-content-hover: #fafafa;
+  --led-content-disable: #7f7f7f;
+  --led-typography-family-title: Ralewaypx;
+  --led-typography-family-body: Montserratpx;
+  --led-typography-weight-light: Lightpx;
+  --led-typography-weight-medium: Mediumpx;
+  --led-typography-weight-regular: Regularpx;
+  --led-typography-weight-bold: Boldpx;
+  --led-typography-size-s: 8px;
+  --led-typography-size-sm: 12px;
+  --led-typography-size-ms: 16px;
+  --led-typography-size-ml: 20px;
+  --led-typography-size-l: 24px;
+  --led-typography-size-xl: 28px;
+  --led-typography-size-2xl: 32px;
+  --led-typography-size-m: 14px;
+
+}
+
+/* Utilitários de cores */
+.led-surface-primary { background-color: var(--led-surface-primary); }
+.led-surface-standard { background-color: var(--led-surface-standard); }
+.led-surface-grey { background-color: var(--led-surface-grey); }
+.led-surface-primary-light { background-color: var(--led-surface-primary-light); }
+.led-surface-secondary { background-color: var(--led-surface-secondary); }
+.led-surface-secondary-light { background-color: var(--led-surface-secondary-light); }
+.led-surface-error { background-color: var(--led-surface-error); }
+.led-surface-error-light { background-color: var(--led-surface-error-light); }
+.led-surface-sucess { background-color: var(--led-surface-sucess); }
+.led-surface-sucess-light { background-color: var(--led-surface-sucess-light); }
+.led-surface-warning { background-color: var(--led-surface-warning); }
+.led-surface-warning-light { background-color: var(--led-surface-warning-light); }
+.led-surface-info { background-color: var(--led-surface-info); }
+.led-surface-info-light { background-color: var(--led-surface-info-light); }
+.led-surface-hover { background-color: var(--led-surface-hover); }
+
+/* Utilitários de texto */
+.led-text-primary { color: var(--led-content-primary); }
+.led-text-secondary { color: var(--led-content-secondary); }
+.led-text-error { color: var(--led-content-error); }
+.led-text-sucess { color: var(--led-content-sucess); }
+.led-text-warning { color: var(--led-content-warning); }
+.led-text-info { color: var(--led-content-info); }
+.led-text-dark { color: var(--led-content-dark); }
+.led-text-light { color: var(--led-content-light); }
+.led-text-disable { color: var(--led-content-disable); }
+
+/* Utilitários de espaçamento */
+.led-p-xs { padding: var(--led-padding-xs); }
+.led-p-s { padding: var(--led-padding-s); }
+.led-p-sm { padding: var(--led-padding-sm); }
+.led-p-m { padding: var(--led-padding-m); }
+.led-p-ml { padding: var(--led-padding-ml); }
+.led-p-l { padding: var(--led-padding-l); }
+.led-p-xl { padding: var(--led-padding-xl); }
+.led-p-2xl { padding: var(--led-padding-2xl); }
+
+.led-m-xs { margin: var(--led-margin-xs); }
+.led-m-s { margin: var(--led-margin-s); }
+.led-m-sm { margin: var(--led-margin-sm); }
+.led-m-m { margin: var(--led-margin-m); }
+.led-m-ml { margin: var(--led-margin-ml); }
+.led-m-l { margin: var(--led-margin-l); }
+.led-m-xl { margin: var(--led-margin-xl); }
+
+.led-gap-xs { gap: var(--led-gap-xs); }
+.led-gap-s { gap: var(--led-gap-s); }
+.led-gap-sm { gap: var(--led-gap-sm); }
+.led-gap-m { gap: var(--led-gap-m); }
+.led-gap-l { gap: var(--led-gap-l); }
+.led-gap-xl { gap: var(--led-gap-xl); }
+.led-gap-2xl { gap: var(--led-gap-2xl); }
+
+/* Utilitários de borda */
+.led-border-s { border-width: var(--led-border-size-s); }
+.led-border-m { border-width: var(--led-border-size-m); }
+.led-border-l { border-width: var(--led-border-size-l); }
+
+.led-radius-s { border-radius: var(--led-border-radius-s); }
+.led-radius-m { border-radius: var(--led-border-radius-m); }
+.led-radius-l { border-radius: var(--led-border-radius-l); }
+
+/* Utilitários de tipografia */
+.led-font-title { font-family: var(--led-typography-family-title); }
+.led-font-body { font-family: var(--led-typography-family-body); }
+
+.led-text-s { font-size: var(--led-typography-size-s); }
+.led-text-sm { font-size: var(--led-typography-size-sm); }
+.led-text-ms { font-size: var(--led-typography-size-ms); }
+.led-text-m { font-size: var(--led-typography-size-m); }
+.led-text-ml { font-size: var(--led-typography-size-ml); }
+.led-text-l { font-size: var(--led-typography-size-l); }
+.led-text-xl { font-size: var(--led-typography-size-xl); }
+.led-text-2xl { font-size: var(--led-typography-size-2xl); }
+
+.led-weight-light { font-weight: var(--led-typography-weight-light); }
+.led-weight-medium { font-weight: var(--led-typography-weight-medium); }
+.led-weight-regular { font-weight: var(--led-typography-weight-regular); }
+.led-weight-bold { font-weight: var(--led-typography-weight-bold); }

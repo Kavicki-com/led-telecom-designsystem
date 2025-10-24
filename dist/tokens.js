@@ -1,0 +1,152 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.designTokens = void 0;
+exports.getToken = getToken;
+exports.getTokensByCategory = getTokensByCategory;
+exports.getAllTokens = getAllTokens;
+/**
+ * Tokens de design do LED Telecom
+ * Baseados nos arquivos JSON de tokens
+ */
+exports.designTokens = {
+    surface: {
+        primary: '#1f2453',
+        standard: '#fafafa',
+        grey: '#dadada',
+        'primary-light': '#9da5e8',
+        secondary: '#ffaa00',
+        'secondary-light': '#ffefc2',
+        error: '#e5102e',
+        'error-light': '#fab3bd',
+        sucess: '#2a613d',
+        'sucess-light': '#98d2ac',
+        warning: '#e69900',
+        'warning-light': '#ffdd8a',
+        info: '#565fcc',
+        'info-light': '#9da5e8',
+        hover: '#fafafa'
+    },
+    border: {
+        size: {
+            s: '1',
+            m: '2',
+            l: '4'
+        },
+        radius: {
+            s: '4',
+            m: '8',
+            l: '16'
+        }
+    },
+    padding: {
+        empty: '',
+        xs: '4',
+        s: '8',
+        sm: '12',
+        m: '16',
+        ml: '20',
+        l: '24',
+        xl: '32',
+        '2xl': '40'
+    },
+    gap: {
+        empty: '',
+        xs: '4',
+        s: '8',
+        sm: '12',
+        m: '16',
+        l: '24',
+        xl: '28',
+        '2xl': '32'
+    },
+    margin: {
+        empty: '',
+        xs: '4',
+        s: '8',
+        sm: '12',
+        m: '16',
+        ml: '20',
+        l: '24',
+        xl: '32'
+    },
+    content: {
+        dark: '#1f1f1f',
+        light: '#fafafa',
+        primary: '#1f2453',
+        'primary-light': '#9da5e8',
+        secondary: '#ffaa00',
+        'secondary-light': '#ffefc2',
+        error: '#e5102e',
+        'error-light': '#fab3bd',
+        sucess: '#2a613d',
+        'sucess-light': '#98d2ac',
+        warning: '#e69900',
+        'warning-light': '#ffdd8a',
+        info: '#565fcc',
+        'info-light': '#9da5e8',
+        hover: '#fafafa',
+        disable: '#7f7f7f'
+    },
+    typography: {
+        family: {
+            title: 'Raleway',
+            body: 'Montserrat'
+        },
+        weight: {
+            light: 'Light',
+            medium: 'Medium',
+            regular: 'Regular',
+            bold: 'Bold'
+        },
+        size: {
+            s: '8',
+            sm: '12',
+            ms: '16',
+            ml: '20',
+            l: '24',
+            xl: '28',
+            '2xl': '32',
+            m: '14'
+        }
+    }
+};
+/**
+ * Função para obter um token específico
+ * @param category - Categoria do token (surface, border, etc.)
+ * @param key - Chave do token (pode ser aninhada como 'radius.m')
+ * @returns Valor do token
+ */
+function getToken(category, key) {
+    const categoryTokens = exports.designTokens[category];
+    // Se a chave contém ponto, navegar pelo objeto aninhado
+    if (key.includes('.')) {
+        const keys = key.split('.');
+        let current = categoryTokens;
+        for (const k of keys) {
+            if (current && typeof current === 'object' && k in current) {
+                current = current[k];
+            }
+            else {
+                return '';
+            }
+        }
+        return current || '';
+    }
+    return categoryTokens[key] || '';
+}
+/**
+ * Função para obter todos os tokens de uma categoria
+ * @param category - Categoria do token
+ * @returns Objeto com todos os tokens da categoria
+ */
+function getTokensByCategory(category) {
+    return exports.designTokens[category];
+}
+/**
+ * Função para obter todos os tokens
+ * @returns Objeto completo com todos os tokens
+ */
+function getAllTokens() {
+    return exports.designTokens;
+}
+//# sourceMappingURL=tokens.js.map
