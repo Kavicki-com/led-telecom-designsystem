@@ -1,0 +1,156 @@
+/* GhostButton - Componente de botão ghost do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=118-986&m=dev */
+
+.led-button-ghost {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs, 4px);
+    box-sizing: border-box;
+
+    /* Espaçamento */
+    padding: var(--padding-sm, 12px);
+
+    /* Bordas */
+    border: none;
+    border-radius: var(--border-radius-l, 16px);
+
+    /* Tipografia */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+    white-space: nowrap;
+
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Posicionamento */
+    position: relative;
+    overflow: hidden;
+
+    /* Reset de estilos padrão do button */
+    background: none;
+    outline: none;
+}
+
+/* Estados do botão - conforme design do Figma */
+
+/* Estado Default - data-name="state=default" data-node-id="118:987" */
+.led-button-ghost--default {
+    background-color: transparent;
+    color: var(--content-primary, #1f2453);
+}
+
+/* Estado Hover - data-name="state=hover" data-node-id="118:995" */
+.led-button-ghost--hover {
+    background-color: var(--content-primary-light, #9da5e8);
+    color: var(--content-primary, #1f2453);
+}
+
+/* Estado Pressed - data-name="state=pressed" data-node-id="118:991" */
+.led-button-ghost--pressed {
+    background-color: var(--content-primary-light, #9da5e8);
+    color: var(--content-primary, #1f2453);
+}
+
+.led-button-ghost--pressed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: 0px 4px 24px 0px inset rgba(29, 29, 29, 0.16);
+}
+
+/* Estado State5 - data-name="state=state5" data-node-id="191:249" */
+.led-button-ghost--state5 {
+    background-color: transparent;
+    color: var(--content-primary-light, #9da5e8);
+}
+
+/* Estado Disable - data-name="state=disable" data-node-id="118:999" */
+.led-button-ghost--disable {
+    background-color: transparent;
+    color: var(--content-primary-light, #9da5e8);
+    cursor: not-allowed;
+}
+
+/* Estados interativos reais (não controlados por props) */
+.led-button-ghost:not(.led-button-ghost--disable):hover {
+    background-color: var(--content-primary-light, #9da5e8);
+}
+
+.led-button-ghost:not(.led-button-ghost--disable):active {
+    background-color: var(--content-primary-light, #9da5e8);
+}
+
+.led-button-ghost:not(.led-button-ghost--disable):active::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: 0px 4px 24px 0px inset rgba(29, 29, 29, 0.16);
+}
+
+/* Elementos internos do botão - conforme design do Figma */
+
+.led-button-ghost__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Cores do label baseadas no estado do botão */
+.led-button-ghost--default .led-button-ghost__label,
+.led-button-ghost--hover .led-button-ghost__label,
+.led-button-ghost--pressed .led-button-ghost__label {
+    color: var(--content-primary, #1f2453);
+}
+
+.led-button-ghost--state5 .led-button-ghost__label,
+.led-button-ghost--disable .led-button-ghost__label {
+    color: var(--content-primary-light, #9da5e8);
+}
+
+.led-button-ghost__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+}
+
+.led-button-ghost__icon--left {
+    margin-right: var(--gap-xs, 4px);
+}
+
+.led-button-ghost__icon--right {
+    margin-left: var(--gap-xs, 4px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-button-ghost {
+        padding: var(--padding-s, 8px);
+        font-size: 12px;
+    }
+}
+
+/* Estados de foco para acessibilidade */
+.led-button-ghost:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Animação de transição suave */
+.led-button-ghost * {
+    transition: inherit;
+}

@@ -1,0 +1,62 @@
+# Configurações do Git para o projeto LED Telecom Design Tokens
+
+# Arquivos de texto
+*.md text
+*.json text
+*.js text
+*.ts text
+*.css text
+*.html text
+*.yml text
+*.yaml text
+
+# Arquivos binários
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+
+# Arquivos de linha de comando
+*.sh text eol=lf
+*.bat text eol=crlf
+
+# Arquivos de configuração
+.gitignore text
+.gitattributes text
+.editorconfig text
+.prettierrc text
+.eslintrc.json text
+
+# Arquivos de dependências
+package.json text
+package-lock.json text
+yarn.lock text
+
+# Arquivos de build
+dist/ export-ignore
+build/ export-ignore
+*.tsbuildinfo export-ignore
+
+# Arquivos de desenvolvimento
+.vscode/ export-ignore
+.idea/ export-ignore
+*.swp export-ignore
+*.swo export-ignore
+
+# Arquivos de sistema
+.DS_Store export-ignore
+Thumbs.db export-ignore
+
+# Arquivos de logs
+*.log export-ignore
+logs/ export-ignore
+
+# Arquivos de cobertura
+coverage/ export-ignore
+.nyc_output/ export-ignore
+
+# Arquivos de cache
+.cache/ export-ignore
+.parcel-cache/ export-ignore

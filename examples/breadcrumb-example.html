@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadcrumb Example - LED Telecom</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .example-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2453;
+            margin-bottom: 16px;
+        }
+
+        .breadcrumb-demo {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-top: 16px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .breadcrumb:hover {
+            background-color: #f0f0f0;
+        }
+
+        .breadcrumb--default .breadcrumb__label {
+            color: #1f2453;
+        }
+
+        .breadcrumb--disable {
+            cursor: not-allowed;
+        }
+
+        .breadcrumb--disable .breadcrumb__label {
+            color: #7f7f7f;
+        }
+
+        .breadcrumb__label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: normal;
+            white-space: nowrap;
+        }
+
+        .breadcrumb__arrow {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .breadcrumb__arrow svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .breadcrumb--default .breadcrumb__arrow {
+            color: #1f2453;
+        }
+
+        .breadcrumb--disable .breadcrumb__arrow {
+            color: #7f7f7f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Breadcrumb Component - LED Telecom</h1>
+        <p>Exemplos de uso do componente Breadcrumb baseado no design do Figma.</p>
+
+        <div class="example-section">
+            <div class="example-title">Estado Default</div>
+            <div class="breadcrumb-demo">
+                <div class="breadcrumb breadcrumb--default">
+                    <p class="breadcrumb__label">passo 1</p>
+                    <div class="breadcrumb__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">
+                &lt;div class="breadcrumb breadcrumb--default"&gt;
+                &lt;p class="breadcrumb__label"&gt;passo 1&lt;/p&gt;
+                &lt;div class="breadcrumb__arrow"&gt;
+                &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none"&gt;
+                &lt;path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"/&gt;
+                &lt;/svg&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </div>
+
+        <div class="example-section">
+            <div class="example-title">Estado Disabled</div>
+            <div class="breadcrumb-demo">
+                <div class="breadcrumb breadcrumb--disable">
+                    <p class="breadcrumb__label">passo 1</p>
+                    <div class="breadcrumb__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">
+                &lt;div class="breadcrumb breadcrumb--disable"&gt;
+                &lt;p class="breadcrumb__label"&gt;passo 1&lt;/p&gt;
+                &lt;div class="breadcrumb__arrow"&gt;
+                &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none"&gt;
+                &lt;path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"/&gt;
+                &lt;/svg&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </div>
+
+        <div class="example-section">
+            <div class="example-title">Múltiplos Breadcrumbs (Navegação)</div>
+            <div class="breadcrumb-demo">
+                <div class="breadcrumb breadcrumb--default">
+                    <p class="breadcrumb__label">Início</p>
+                    <div class="breadcrumb__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="breadcrumb breadcrumb--default">
+                    <p class="breadcrumb__label">Produtos</p>
+                    <div class="breadcrumb__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="breadcrumb breadcrumb--default">
+                    <p class="breadcrumb__label">Telefonia</p>
+                    <div class="breadcrumb__arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="breadcrumb breadcrumb--disable">
+                    <p class="breadcrumb__label">Configurações</p>
+                </div>
+            </div>
+            <div class="code-block">
+                &lt;!-- Navegação hierárquica --&gt;
+                &lt;div class="breadcrumb-demo"&gt;
+                &lt;div class="breadcrumb breadcrumb--default"&gt;
+                &lt;p class="breadcrumb__label"&gt;Início&lt;/p&gt;
+                &lt;div class="breadcrumb__arrow"&gt;...&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="breadcrumb breadcrumb--default"&gt;
+                &lt;p class="breadcrumb__label"&gt;Produtos&lt;/p&gt;
+                &lt;div class="breadcrumb__arrow"&gt;...&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="breadcrumb breadcrumb--default"&gt;
+                &lt;p class="breadcrumb__label"&gt;Telefonia&lt;/p&gt;
+                &lt;div class="breadcrumb__arrow"&gt;...&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="breadcrumb breadcrumb--disable"&gt;
+                &lt;p class="breadcrumb__label"&gt;Configurações&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </div>
+
+        <div class="example-section">
+            <div class="example-title">Uso com React</div>
+            <div class="code-block">
+                import { Breadcrumb } from '@led-telecom/design-system';
+
+                // Exemplo básico
+                &lt;Breadcrumb
+                label="passo 1"
+                state="default"
+                showArrow={true}
+                /&gt;
+
+                // Exemplo desabilitado
+                &lt;Breadcrumb
+                label="passo 1"
+                state="disable"
+                disabled={true}
+                showArrow={true}
+                /&gt;
+
+                // Exemplo com clique
+                &lt;Breadcrumb
+                label="Configurações"
+                state="default"
+                onClick={() => console.log('Breadcrumb clicado!')}
+                showArrow={true}
+                /&gt;
+
+                // Exemplo sem seta
+                &lt;Breadcrumb
+                label="Último item"
+                state="default"
+                showArrow={false}
+                /&gt;
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

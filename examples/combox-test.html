@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Combox - LED Telecom</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+        }
+
+        .test-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1f2453;
+        }
+
+        .test-description {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Debug styles para verificar altura */
+        .led-combox__text-area {
+            border: 2px solid red !important;
+            /* Debug: borda vermelha para o container */
+        }
+
+        .led-combox__text {
+            border: 2px solid blue !important;
+            /* Debug: borda azul para o input */
+            background: rgba(0, 255, 0, 0.1) !important;
+            /* Debug: fundo verde claro */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Teste do Combox</h1>
+
+        <div class="test-section">
+            <h2 class="test-title">Combox Básico</h2>
+            <p class="test-description">Teste a área de digitação e o dropdown</p>
+            <div class="led-combox-container" data-name="state=default" data-node-id="178:266">
+                <p class="led-combox__label">Selecione uma opção</p>
+                <div class="led-combox__text-area led-combox__text-area--default">
+                    <input type="text" class="led-combox__text led-combox__text--default"
+                        placeholder="Digite ou selecione..." value="">
+                    <div class="led-combox__icon-container">
+                        <div class="led-combox__icon">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <p class="led-combox__description">Escolha uma das opções disponíveis</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">Combox com Dropdown Aberto</h2>
+            <p class="test-description">Teste o scroll com muitas opções</p>
+            <div class="led-combox-container" data-name="state=open" data-node-id="178:243">
+                <p class="led-combox__label">Selecione um estado</p>
+                <div class="led-combox__text-area led-combox__text-area--open">
+                    <input type="text" class="led-combox__text led-combox__text--open"
+                        placeholder="Digite ou selecione..." value="">
+                    <div class="led-combox__icon-container">
+                        <div class="led-combox__icon">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="led-combox__dropdown led-combox__dropdown--open">
+                    <div class="led-combox__option led-combox__option--first">
+                        <p class="led-combox__option-text">São Paulo</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Rio de Janeiro</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Belo Horizonte</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Salvador</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Brasília</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Fortaleza</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Manaus</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Curitiba</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Recife</p>
+                    </div>
+                    <div class="led-combox__option">
+                        <p class="led-combox__option-text">Goiânia</p>
+                    </div>
+                </div>
+                <p class="led-combox__description">Lista com scroll automático</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

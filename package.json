@@ -1,0 +1,70 @@
+{
+    "name": "@led-telecom/design-tokens",
+    "version": "1.0.0",
+    "description": "Design tokens para o sistema de design LED Telecom",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "tokens",
+        "css"
+    ],
+    "scripts": {
+        "build": "tsc && npm run generate-css",
+        "generate-css": "node scripts/generate-css.js",
+        "dev": "tsc --watch",
+        "clean": "rimraf dist",
+        "lint": "eslint src/**/*.ts",
+        "lint:fix": "eslint src/**/*.ts --fix",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "prepublishOnly": "npm run clean && npm run build",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
+    },
+    "keywords": [
+        "design-tokens",
+        "design-system",
+        "led-telecom",
+        "css-variables",
+        "typescript"
+    ],
+    "author": "LED Telecom",
+    "license": "MIT",
+    "devDependencies": {
+        "@storybook/preset-react-webpack": "9.1.14",
+        "@storybook/react-webpack5": "9.1.14",
+        "@types/jest": "^29.0.0",
+        "@types/node": "^20.0.0",
+        "@types/react": "19.2.2",
+        "@types/react-dom": "19.2.2",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "@vitejs/plugin-react": "5.1.0",
+        "eslint": "^8.0.0",
+        "jest": "^29.0.0",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "rimraf": "^5.0.0",
+        "storybook": "9.1.14",
+        "ts-jest": "^29.0.0",
+        "ts-loader": "9.5.4",
+        "typescript": "5.9.3",
+        "vite": "7.1.12"
+    },
+    "peerDependencies": {
+        "typescript": ">=4.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/led-telecom/design-tokens.git"
+    },
+    "bugs": {
+        "url": "https://github.com/led-telecom/design-tokens/issues"
+    },
+    "homepage": "https://github.com/led-telecom/design-tokens#readme",
+    "dependencies": {
+        "expo": "54.0.20"
+    }
+}

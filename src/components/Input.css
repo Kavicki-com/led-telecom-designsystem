@@ -1,0 +1,260 @@
+/* Input - Componente de campo de entrada do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=118-1124&m=dev */
+
+.led-input-container {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--size-xs, 4px);
+    width: 328px;
+    box-sizing: border-box;
+}
+
+/* Label do input - conforme design do Figma */
+.led-input__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    color: var(--content-dark, #1f1f1f);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Área de texto do input - conforme design do Figma */
+.led-input__text-area {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    gap: var(--gap-m, 16px);
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
+
+    /* Espaçamento */
+    padding: var(--padding-sm, 12px);
+
+    /* Bordas */
+    border-radius: var(--border-radius-m, 8px);
+    border-style: solid;
+}
+
+/* Estados do input - conforme design do Figma */
+
+/* Estado Default - data-name="state=default" data-node-id="118:1123" */
+.led-input__text-area--default {
+    border-width: var(--border-size-s, 1px);
+    border-color: var(--content-dark, #1f1f1f);
+    background-color: transparent;
+}
+
+/* Estado Hover - data-name="state=hover" data-node-id="118:1121" */
+.led-input__text-area--hover {
+    border-width: var(--border-size-s, 1px);
+    border-color: var(--content-dark, #1f1f1f);
+    background-color: var(--surface-standard, #fafafa);
+}
+
+/* Estado OnClick - data-name="state=onclick" data-node-id="118:1120" */
+.led-input__text-area--onclick {
+    border-width: var(--border-size-m, 2px);
+    border-color: var(--content-primary, #1f2453);
+    background-color: var(--surface-standard, #fafafa);
+}
+
+/* Estado Filled - data-name="state=filled" data-node-id="118:1119" */
+.led-input__text-area--filled {
+    border: none;
+    background-color: var(--surface-standard, #fafafa);
+}
+
+/* Estado Disable - data-name="state=disable" data-node-id="118:1122" */
+.led-input__text-area--disable {
+    border-width: var(--border-size-s, 1px);
+    border-color: var(--content-disable, #7f7f7f);
+    background-color: transparent;
+}
+
+/* Campo de texto do input */
+.led-input__text {
+    /* Layout */
+    flex: 1;
+    min-width: 0;
+    min-height: 1px;
+
+    /* Tipografia */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: normal;
+
+    /* Reset de estilos padrão do input */
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+
+    /* Interação */
+    cursor: text;
+}
+
+/* Estados do texto do input */
+
+/* Estado Default */
+.led-input__text--default {
+    color: var(--content-dark, #1f1f1f);
+}
+
+/* Estado Hover */
+.led-input__text--hover {
+    color: var(--content-dark, #1f1f1f);
+}
+
+/* Estado OnClick */
+.led-input__text--onclick {
+    color: var(--content-dark, #1f1f1f);
+}
+
+/* Estado Filled */
+.led-input__text--filled {
+    color: var(--content-dark, #1f1f1f);
+}
+
+/* Estado Disable */
+.led-input__text--disable {
+    color: var(--content-disable, #7f7f7f);
+    cursor: not-allowed;
+}
+
+/* Cursor para estado onclick */
+.led-input__cursor {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: normal;
+    color: var(--content-dark, #1f1f1f);
+    white-space: pre;
+    position: relative;
+    flex-shrink: 0;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Ícone do input */
+.led-input__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+}
+
+/* Descrição do input */
+.led-input__description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    color: var(--content-disable, #7f7f7f);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Estados interativos reais (não controlados por props) */
+.led-input__text-area:not(.led-input__text-area--disable):hover {
+    background-color: var(--surface-standard, #fafafa);
+}
+
+.led-input__text-area:not(.led-input__text-area--disable):focus-within {
+    border-width: var(--border-size-m, 2px);
+    border-color: var(--content-primary, #1f2453);
+    background-color: var(--surface-standard, #fafafa);
+}
+
+/* Estados de foco para acessibilidade */
+.led-input__text:focus-visible {
+    outline: none;
+}
+
+.led-input__text-area:focus-within {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-input-container {
+        width: 100%;
+        max-width: 328px;
+    }
+
+    .led-input__text-area {
+        padding: var(--padding-s, 8px);
+    }
+
+    .led-input__text,
+    .led-input__label {
+        font-size: 12px;
+    }
+}
+
+/* Animações de transição suave */
+.led-input__text-area {
+    transition: all 0.2s ease-in-out;
+}
+
+.led-input__text-area * {
+    transition: inherit;
+}
+
+/* Placeholder styling */
+.led-input__text::placeholder {
+    color: var(--content-disable, #7f7f7f);
+    opacity: 1;
+}
+
+.led-input__text--disable::placeholder {
+    color: var(--content-disable, #7f7f7f);
+}
+
+/* Estados de erro (para futuras implementações) */
+.led-input__text-area--error {
+    border-color: var(--content-error, #e5102e);
+    background-color: var(--surface-error-light, #fab3bd);
+}
+
+.led-input__text--error {
+    color: var(--content-error, #e5102e);
+}
+
+/* Estados de sucesso (para futuras implementações) */
+.led-input__text-area--success {
+    border-color: var(--content-sucess, #2a613d);
+    background-color: var(--surface-sucess-light, #98d2ac);
+}
+
+.led-input__text--success {
+    color: var(--content-sucess, #2a613d);
+}

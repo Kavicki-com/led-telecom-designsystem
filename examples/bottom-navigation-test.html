@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste BottomNavigation - LED Telecom</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1f2453;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Teste BottomNavigation - LED Telecom</h1>
+
+    <div class="test-container">
+        <nav class="led-bottom-navigation" role="tablist" aria-label="Navegação inferior">
+            <button class="led-bottom-navigation__item led-bottom-navigation__item--active" aria-label="Home"
+                aria-selected="true">
+                <div class="led-bottom-navigation__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 20V14H14V20H19V12H22L12 3L2 12H5V20H10Z" fill="currentColor" />
+                    </svg>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" aria-label="Money" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.11 3.89 23 5 23H19C20.11 23 21 22.11 21 21V9M19 9H14V4L19 9Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" aria-label="Notifications" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.89 22 12 22ZM18 16V11C18 7.93 16.36 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5S10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" aria-label="Settings" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5A3.5 3.5 0 0 1 15.5 12A3.5 3.5 0 0 1 12 15.5M19.43 12.97C19.47 12.65 19.5 12.33 19.5 12C19.5 11.67 19.47 11.34 19.43 11.03L21.54 9.37C21.73 9.22 21.78 8.95 21.66 8.73L19.66 5.27C19.54 5.05 19.27 4.96 19.05 5.05L16.56 6.05C16.04 5.66 15.5 5.32 14.87 5.07L14.5 2.42C14.46 2.18 14.25 2 14 2H10C9.75 2 9.54 2.18 9.5 2.42L9.13 5.07C8.5 5.32 7.96 5.66 7.44 6.05L4.95 5.05C4.73 4.96 4.46 5.05 4.34 5.27L2.34 8.73C2.22 8.95 2.27 9.22 2.46 9.37L4.57 11.03C4.53 11.34 4.5 11.67 4.5 12C4.5 12.33 4.53 12.65 4.57 12.97L2.46 14.63C2.27 14.78 2.22 15.05 2.34 15.27L4.34 18.73C4.46 18.95 4.73 19.03 4.95 18.95L7.44 17.94C7.96 18.34 8.5 18.68 9.13 18.93L9.5 21.58C9.54 21.82 9.75 22 10 22H14C14.25 22 14.46 21.82 14.5 21.58L14.87 18.93C15.5 18.68 16.04 18.34 16.56 17.94L19.05 18.95C19.27 19.03 19.54 18.95 19.66 18.73L21.66 15.27C21.78 15.05 21.73 14.78 21.54 14.63L19.43 12.97Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" aria-label="Help" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11 18H13V16H11V18ZM12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20ZM12 6C9.79 6 8 7.79 8 10H10C10 8.9 10.9 8 12 8S14 8.9 14 10C14 12 11 11.75 11 15H13C13 12.75 16 12.5 16 10C16 7.79 14.21 6 12 6Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" aria-label="Profile" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        // Adicionar funcionalidade interativa aos botões
+        document.querySelectorAll('.led-bottom-navigation__item').forEach((button, index) => {
+            button.addEventListener('click', function () {
+                // Remover classe ativa de todos os botões
+                document.querySelectorAll('.led-bottom-navigation__item').forEach(btn => {
+                    btn.classList.remove('led-bottom-navigation__item--active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+
+                // Adicionar classe ativa ao botão clicado
+                this.classList.add('led-bottom-navigation__item--active');
+                this.setAttribute('aria-selected', 'true');
+
+                console.log(`Tab alterado para índice: ${index}`);
+            });
+        });
+    </script>
+</body>
+
+</html>

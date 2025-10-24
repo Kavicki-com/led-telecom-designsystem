@@ -1,0 +1,142 @@
+/* ContainedButton - Componente de botão contido do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=118-934&m=dev */
+
+.led-button-contained {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs, 4px);
+    box-sizing: border-box;
+
+    /* Espaçamento */
+    padding: var(--padding-sm, 12px);
+
+    /* Bordas */
+    border: none;
+    border-radius: var(--border-radius-l, 16px);
+
+    /* Tipografia */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+    white-space: nowrap;
+
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Posicionamento */
+    position: relative;
+    overflow: hidden;
+
+    /* Reset de estilos padrão do button */
+    background: none;
+    outline: none;
+}
+
+/* Estados do botão - conforme design do Figma */
+
+/* Estado Default - data-name="state=default" data-node-id="118:933" */
+.led-button-contained--default {
+    background-color: var(--surface-primary, #1f2453);
+    color: var(--content-light, #fafafa);
+    box-shadow: 0px 4px 16px 0px rgba(29, 29, 29, 0.16);
+}
+
+/* Estado Hover - data-name="state=hover" data-node-id="118:931" */
+.led-button-contained--hover {
+    background-image: linear-gradient(90deg, rgba(250, 250, 250, 0.08) 0%, rgba(250, 250, 250, 0.08) 100%),
+        linear-gradient(90deg, rgb(31, 36, 83) 0%, rgb(31, 36, 83) 100%);
+    color: var(--content-light, #fafafa);
+}
+
+/* Estado Pressed - data-name="state=pressed" data-node-id="118:932" */
+.led-button-contained--pressed {
+    background-color: var(--surface-primary, #1f2453);
+    color: var(--content-light, #fafafa);
+}
+
+.led-button-contained--pressed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: 0px 4px 24px 0px inset rgba(29, 29, 29, 0.16);
+}
+
+/* Estado Disable - data-name="state=disable" data-node-id="118:930" */
+.led-button-contained--disable {
+    background-color: var(--surface-primary-light, #9da5e8);
+    color: var(--content-light, #fafafa);
+    cursor: not-allowed;
+}
+
+/* Estados interativos reais (não controlados por props) */
+.led-button-contained:not(.led-button-contained--disable):hover {
+    background-image: linear-gradient(90deg, rgba(250, 250, 250, 0.08) 0%, rgba(250, 250, 250, 0.08) 100%),
+        linear-gradient(90deg, rgb(31, 36, 83) 0%, rgb(31, 36, 83) 100%);
+}
+
+.led-button-contained:not(.led-button-contained--disable):active {
+    background-color: var(--surface-primary, #1f2453);
+}
+
+.led-button-contained:not(.led-button-contained--disable):active::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: 0px 4px 24px 0px inset rgba(29, 29, 29, 0.16);
+}
+
+/* Elementos internos do botão - conforme design do Figma */
+
+.led-button-contained__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    color: var(--content-light, #fafafa);
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.led-button-contained__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+}
+
+.led-button-contained__icon--left {
+    margin-right: var(--gap-xs, 4px);
+}
+
+.led-button-contained__icon--right {
+    margin-left: var(--gap-xs, 4px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-button-contained {
+        padding: var(--padding-s, 8px);
+        font-size: 12px;
+    }
+}
+
+/* Estados de foco para acessibilidade */
+.led-button-contained:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Animação de transição suave */
+.led-button-contained * {
+    transition: inherit;
+}

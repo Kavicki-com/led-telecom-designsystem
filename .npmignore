@@ -1,0 +1,29 @@
+# Source files
+src/
+scripts/
+
+# Development files
+tsconfig.json
+.gitignore
+.npmignore
+
+# Documentation
+README.md
+
+# Build files
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env*

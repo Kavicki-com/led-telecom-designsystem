@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BottomNavigation - LED Telecom Design System</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .example-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h1 {
+            color: var(--content-primary, #1f2453);
+            margin: 0;
+            text-align: center;
+        }
+
+        .example-title {
+            color: var(--content-primary, #1f2453);
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .example-description {
+            color: var(--content-dark, #1f1f1f);
+            margin: 0;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .state-info {
+            background: var(--surface-secondary-light, #ffefc2);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--content-primary, #1f2453);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BottomNavigation - LED Telecom Design System</h1>
+
+    <div class="example-container">
+        <h2 class="example-title">Estado Padrão (Home Ativo)</h2>
+        <p class="example-description">Navegação inferior com 6 itens: Home, Money, Notifications, Settings, Help e
+            Profile.</p>
+        <nav class="led-bottom-navigation" data-name="Property 1=Default" data-node-id="124:943" role="tablist"
+            aria-label="Navegação inferior">
+            <button class="led-bottom-navigation__item led-bottom-navigation__item--active" data-name="Home Button"
+                data-node-id="124:959" aria-label="Home" aria-selected="true">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">home</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Money Button" data-node-id="124:961"
+                aria-label="Money" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">attach_money</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Notifications Button" data-node-id="124:962"
+                aria-label="Notifications" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">notifications</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Settings Button" data-node-id="124:963"
+                aria-label="Settings" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">settings</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Help Button" data-node-id="124:964" aria-label="Help"
+                aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">help</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Profile Button" data-node-id="124:965"
+                aria-label="Profile" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+            </button>
+        </nav>
+        <div class="state-info">Item Home ativo (índice 0)</div>
+    </div>
+
+    <div class="example-container">
+        <h2 class="example-title">Money Ativo</h2>
+        <p class="example-description">Navegação inferior com o item Money ativo.</p>
+        <nav class="led-bottom-navigation" data-name="Property 1=Variant2" data-node-id="124:958" role="tablist"
+            aria-label="Navegação inferior">
+            <button class="led-bottom-navigation__item" data-name="Home Button" data-node-id="124:985" aria-label="Home"
+                aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">home</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item led-bottom-navigation__item--active" data-name="Money Button"
+                data-node-id="124:987" aria-label="Money" aria-selected="true">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">attach_money</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Notifications Button" data-node-id="124:988"
+                aria-label="Notifications" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">notifications</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Settings Button" data-node-id="124:989"
+                aria-label="Settings" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">settings</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Help Button" data-node-id="124:990" aria-label="Help"
+                aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">help</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Profile Button" data-node-id="124:991"
+                aria-label="Profile" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+            </button>
+        </nav>
+        <div class="state-info">Item Money ativo (índice 1)</div>
+    </div>
+
+    <div class="example-container">
+        <h2 class="example-title">Notifications Ativo</h2>
+        <p class="example-description">Navegação inferior com o item Notifications ativo.</p>
+        <nav class="led-bottom-navigation" data-name="Property 1=Variant3" data-node-id="124:971" role="tablist"
+            aria-label="Navegação inferior">
+            <button class="led-bottom-navigation__item" data-name="Home Button" data-node-id="124:972" aria-label="Home"
+                aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">home</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Money Button" data-node-id="124:974"
+                aria-label="Money" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">attach_money</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item led-bottom-navigation__item--active"
+                data-name="Notifications Button" data-node-id="124:976" aria-label="Notifications" aria-selected="true">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">notifications</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Settings Button" data-node-id="124:977"
+                aria-label="Settings" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">settings</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Help Button" data-node-id="124:978" aria-label="Help"
+                aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">help</span>
+                </div>
+            </button>
+            <button class="led-bottom-navigation__item" data-name="Profile Button" data-node-id="124:979"
+                aria-label="Profile" aria-selected="false">
+                <div class="led-bottom-navigation__icon">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+            </button>
+        </nav>
+        <div class="state-info">Item Notifications ativo (índice 2)</div>
+    </div>
+
+    <script>
+        // Adicionar funcionalidade interativa aos botões
+        document.querySelectorAll('.led-bottom-navigation__item').forEach((button, index) => {
+            button.addEventListener('click', function () {
+                // Remover classe ativa de todos os botões no mesmo container
+                const container = this.closest('.led-bottom-navigation');
+                container.querySelectorAll('.led-bottom-navigation__item').forEach(btn => {
+                    btn.classList.remove('led-bottom-navigation__item--active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+
+                // Adicionar classe ativa ao botão clicado
+                this.classList.add('led-bottom-navigation__item--active');
+                this.setAttribute('aria-selected', 'true');
+
+                console.log(`Tab alterado para índice: ${index}`);
+            });
+        });
+    </script>
+</body>
+
+</html>

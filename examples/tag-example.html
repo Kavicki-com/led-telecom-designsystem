@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag - LED Telecom Design System</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../dist/components/Tag.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--content-primary, #1f2453);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--content-dark, #1f1f1f);
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: var(--content-primary, #1f2453);
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+
+        .example-grid {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .example-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .example-label {
+            font-size: 12px;
+            color: var(--content-dark, #1f1f1f);
+            text-align: center;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tag Component</h1>
+        <p class="subtitle">Componente de tag de status do LED Telecom Design System</p>
+
+        <div class="section">
+            <h2>Variantes</h2>
+            <p>O componente Tag possui três variantes principais:</p>
+
+            <div class="example-grid">
+                <div class="example-item">
+                    <div class="led-tag led-tag--vencido">
+                        <span class="led-tag__label">Vencido</span>
+                    </div>
+                    <span class="example-label">Vencido</span>
+                </div>
+
+                <div class="example-item">
+                    <div class="led-tag led-tag--em-atraso">
+                        <span class="led-tag__label">Em Atraso</span>
+                    </div>
+                    <span class="example-label">Em atraso</span>
+                </div>
+
+                <div class="example-item">
+                    <div class="led-tag led-tag--pago">
+                        <span class="led-tag__label">Pago</span>
+                    </div>
+                    <span class="example-label">Pago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estados</h2>
+            <p>Diferentes estados do componente:</p>
+
+            <div class="example-grid">
+                <div class="example-item">
+                    <div class="led-tag led-tag--vencido led-tag--default">
+                        <span class="led-tag__label">Default</span>
+                    </div>
+                    <span class="example-label">Default</span>
+                </div>
+
+                <div class="example-item">
+                    <div class="led-tag led-tag--em-atraso led-tag--hover">
+                        <span class="led-tag__label">Hover</span>
+                    </div>
+                    <span class="example-label">Hover</span>
+                </div>
+
+                <div class="example-item">
+                    <div class="led-tag led-tag--pago led-tag--pressed">
+                        <span class="led-tag__label">Pressed</span>
+                    </div>
+                    <span class="example-label">Pressed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Tags Clicáveis</h2>
+            <p>Tags que podem ser clicadas (com cursor pointer e efeitos hover):</p>
+
+            <div class="example-grid">
+                <div class="example-item">
+                    <div class="led-tag led-tag--vencido led-tag--clickable" onclick="alert('Tag Vencido clicada!')">
+                        <span class="led-tag__label">Vencido</span>
+                    </div>
+                    <span class="example-label">Clicável</span>
+                </div>
+
+                <div class="example-item">
+                    <div class="led-tag led-tag--em-atraso led-tag--clickable"
+                        onclick="alert('Tag Em Atraso clicada!')">
+                        <span class="led-tag__label">Em Atraso</span>
+                    </div>
+                    <span class="example-label">Clicável</span>
+                </div>
+
+                <div class="example-item">
+                    <div class="led-tag led-tag--pago led-tag--clickable" onclick="alert('Tag Pago clicada!')">
+                        <span class="led-tag__label">Pago</span>
+                    </div>
+                    <span class="example-label">Clicável</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Uso em React</h2>
+            <p>Exemplo de como usar o componente Tag em React:</p>
+
+            <div class="code-block">
+                import { Tag } from '@led-telecom/design-tokens';
+
+                // Tag básica
+                &lt;Tag label="Vencido" variant="Vencido" /&gt;
+
+                // Tag clicável
+                &lt;Tag
+                label="Em Atraso"
+                variant="Em atraso"
+                clickable={true}
+                onClick={() => console.log('Tag clicada!')}
+                /&gt;
+
+                // Tag com estado específico
+                &lt;Tag
+                label="Pago"
+                variant="Pago"
+                state="hover"
+                /&gt;
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Uso em HTML/CSS</h2>
+            <p>Exemplo de como usar o componente Tag em HTML puro:</p>
+
+            <div class="code-block">
+                &lt;!-- Tag básica --&gt;
+                &lt;div class="led-tag led-tag--vencido"&gt;
+                &lt;span class="led-tag__label"&gt;Vencido&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Tag clicável --&gt;
+                &lt;button class="led-tag led-tag--em-atraso led-tag--clickable" onclick="handleClick()"&gt;
+                &lt;span class="led-tag__label"&gt;Em Atraso&lt;/span&gt;
+                &lt;/button&gt;
+
+                &lt;!-- Tag com estado hover --&gt;
+                &lt;div class="led-tag led-tag--pago led-tag--hover"&gt;
+                &lt;span class="led-tag__label"&gt;Pago&lt;/span&gt;
+                &lt;/div&gt;
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Props do Componente</h2>
+            <div class="code-block">
+                interface TagProps {
+                <span class="highlight">label: string</span>; // Texto da tag
+                <span class="highlight">variant?: 'Vencido' | 'Em atraso' | 'Pago'</span>; // Variante da tag
+                <span class="highlight">state?: 'default' | 'hover' | 'pressed'</span>; // Estado da tag
+                <span class="highlight">clickable?: boolean</span>; // Se a tag é clicável
+                <span class="highlight">onClick?: () => void</span>; // Função de callback
+                <span class="highlight">className?: string</span>; // Classes CSS adicionais
+                }
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

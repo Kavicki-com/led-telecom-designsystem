@@ -1,0 +1,233 @@
+/* Toast - Componente de notificação do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=124-1415&m=dev */
+
+.led-toast {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    gap: var(--gap-s, 8px);
+    box-sizing: border-box;
+    padding: var(--padding-xs, 4px) var(--padding-s, 8px);
+    border-radius: var(--border-radius-m, 8px);
+
+    /* Tipografia base */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: normal;
+
+    /* Posicionamento */
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* Estados do toast - conforme design do Figma */
+
+/* Estado Default/Error - data-name="Property 1=Default" data-node-id="124:1397" */
+.led-toast--default {
+    background-color: var(--surface-error-light, #feecee);
+}
+
+/* Estado Success - data-name="Property 1=Sucess" data-node-id="124:1416" */
+.led-toast--success {
+    background-color: var(--surface-sucess-light, #e6f4eb);
+}
+
+/* Estado Warning - data-name="Property 1=Warning" data-node-id="124:1424" */
+.led-toast--warning {
+    background-color: var(--surface-warning-light, #fff7f0);
+}
+
+/* Ícone do toast */
+.led-toast__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+/* Cores dos ícones baseadas no tipo - conforme design do Figma */
+.led-toast__icon--success {
+    color: var(--content-sucess, #193924);
+}
+
+.led-toast__icon--warning {
+    color: var(--content-warning, #e47a0a);
+}
+
+.led-toast__icon--error {
+    color: var(--content-error, #e5102e);
+}
+
+/* Conteúdo do toast */
+.led-toast__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs, 4px);
+    align-items: flex-start;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Título do toast */
+.led-toast__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: normal;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Cores do título baseadas no tipo */
+.led-toast--default .led-toast__title {
+    color: var(--content-error, #e5102e);
+}
+
+.led-toast--success .led-toast__title {
+    color: var(--content-sucess, #193924);
+}
+
+.led-toast--warning .led-toast__title {
+    color: var(--content-warning, #e47a0a);
+}
+
+/* Mensagem do toast */
+.led-toast__message {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: normal;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Cores da mensagem baseadas no tipo */
+.led-toast--default .led-toast__message {
+    color: var(--content-error, #e5102e);
+}
+
+.led-toast--success .led-toast__message {
+    color: var(--content-sucess, #193924);
+}
+
+.led-toast--warning .led-toast__message {
+    color: var(--content-warning, #e47a0a);
+}
+
+/* Botão de fechar */
+.led-toast__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Cores do botão de fechar baseadas no tipo */
+.led-toast--default .led-toast__close {
+    color: var(--content-error, #e5102e);
+}
+
+.led-toast--success .led-toast__close {
+    color: var(--content-sucess, #193924);
+}
+
+.led-toast--warning .led-toast__close {
+    color: var(--content-warning, #e47a0a);
+}
+
+/* Estados interativos do botão de fechar */
+.led-toast__close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.led-toast__close:active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.led-toast__close:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-toast {
+        padding: var(--padding-xs, 4px) var(--padding-s, 8px);
+        gap: var(--gap-xs, 4px);
+    }
+
+    .led-toast__icon,
+    .led-toast__close {
+        width: 20px;
+        height: 20px;
+    }
+
+    .led-toast__title,
+    .led-toast__message {
+        font-size: 11px;
+    }
+}
+
+/* Animação de entrada (opcional) */
+@keyframes led-toast-slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.led-toast.led-toast--animate-in {
+    animation: led-toast-slide-in 0.3s ease-out;
+}
+
+/* Animação de saída (opcional) */
+@keyframes led-toast-slide-out {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.led-toast.led-toast--animate-out {
+    animation: led-toast-slide-out 0.3s ease-in;
+}
+
+/* Acessibilidade */
+.led-toast[role="alert"] {
+    /* Garante que o toast seja anunciado por screen readers */
+}
+
+/* Estados de foco para acessibilidade */
+.led-toast:focus-within {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}

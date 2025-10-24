@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  led-telecom-design-tokens:
+    build: .
+    container_name: led-telecom-design-tokens
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    networks:
+      - led-telecom-network
+
+  # Serviço para desenvolvimento
+  dev:
+    build: .
+    container_name: led-telecom-dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    networks:
+      - led-telecom-network
+
+  # Serviço para testes
+  test:
+    build: .
+    container_name: led-telecom-test
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=test
+    command: npm test
+    networks:
+      - led-telecom-network
+
+networks:
+  led-telecom-network:
+    driver: bridge

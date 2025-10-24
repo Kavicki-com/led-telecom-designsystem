@@ -1,0 +1,182 @@
+/* Radio - Componente de radio button do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=118-1024&m=dev */
+
+.led-radio {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    gap: var(--gap-s, 8px);
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+}
+
+.led-radio__container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.led-radio__input {
+    /* Esconder o input nativo */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.led-radio__indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.led-radio__circle {
+    /* Círculo externo do radio - 24px conforme design */
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: var(--led-border-size-s, 1px) solid var(--led-content-primary, #1f2453);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.led-radio__dot {
+    /* Ponto interno quando selecionado */
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--led-content-primary, #1f2453);
+    transition: all 0.2s ease-in-out;
+}
+
+.led-radio__label {
+    /* Label do radio - tipografia conforme design */
+    font-family: var(--family-body, 'Montserrat', sans-serif);
+    font-size: var(--size-m, 14px);
+    font-weight: var(--weight-regular, normal);
+    line-height: normal;
+    color: var(--content-dark, #1f1f1f);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+/* Estados do radio - conforme design do Figma */
+
+/* Estado Off - data-name="state=off" data-node-id="118:1023" */
+.led-radio--off .led-radio__circle {
+    border-color: var(--led-content-primary, #1f2453);
+    background-color: transparent;
+}
+
+.led-radio--off .led-radio__dot {
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* Estado On - data-name="state=on" data-node-id="118:1022" */
+.led-radio--on .led-radio__circle {
+    border-color: var(--led-content-primary, #1f2453);
+    background-color: transparent;
+}
+
+.led-radio--on .led-radio__dot {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Estado Disabled */
+.led-radio--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.led-radio--disabled .led-radio__circle {
+    border-color: var(--led-content-disable, #7f7f7f);
+    background-color: transparent;
+}
+
+.led-radio--disabled .led-radio__dot {
+    background-color: var(--led-content-disable, #7f7f7f);
+}
+
+.led-radio--disabled .led-radio__label {
+    color: var(--led-content-disable, #7f7f7f);
+    cursor: not-allowed;
+}
+
+/* Estados interativos (hover e focus) */
+.led-radio:not(.led-radio--disabled):hover .led-radio__circle {
+    border-color: var(--led-content-primary, #1f2453);
+    box-shadow: 0 0 0 2px rgba(31, 36, 83, 0.1);
+}
+
+.led-radio:not(.led-radio--disabled):hover .led-radio__label {
+    color: var(--led-content-primary, #1f2453);
+}
+
+.led-radio__input:focus-visible+.led-radio__indicator .led-radio__circle {
+    outline: 2px solid var(--led-content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Animação de transição suave */
+.led-radio__circle,
+.led-radio__dot,
+.led-radio__label {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-radio {
+        gap: var(--gap-xs, 4px);
+    }
+
+    .led-radio__circle {
+        width: 20px;
+        height: 20px;
+    }
+
+    .led-radio__dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .led-radio__label {
+        font-size: var(--size-sm, 12px);
+    }
+}
+
+/* Acessibilidade - melhorar contraste em modo escuro */
+@media (prefers-contrast: high) {
+    .led-radio__circle {
+        border-width: 3px;
+    }
+
+    .led-radio--disabled .led-radio__circle {
+        border-color: var(--led-content-dark, #1f1f1f);
+    }
+}
+
+/* Redução de movimento para usuários que preferem menos animações */
+@media (prefers-reduced-motion: reduce) {
+
+    .led-radio__circle,
+    .led-radio__dot,
+    .led-radio__label {
+        transition: none;
+    }
+}

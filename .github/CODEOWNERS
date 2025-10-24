@@ -1,0 +1,49 @@
+# Configuração de proprietários de código para LED Telecom Design Tokens
+
+# Proprietários globais
+* @led-telecom-team
+
+# Arquivos de configuração
+package.json @led-telecom-team
+tsconfig.json @led-telecom-team
+jest.config.js @led-telecom-team
+.eslintrc.json @led-telecom-team
+.prettierrc @led-telecom-team
+
+# Arquivos de documentação
+README.md @led-telecom-team
+CHANGELOG.md @led-telecom-team
+CONTRIBUTING.md @led-telecom-team
+CODE_OF_CONDUCT.md @led-telecom-team
+SECURITY.md @led-telecom-team
+
+# Código fonte
+src/ @led-telecom-team
+src/**/*.ts @led-telecom-team
+
+# Tokens
+tokens/ @led-telecom-team
+tokens/**/*.json @led-telecom-team
+
+# Scripts de build
+scripts/ @led-telecom-team
+scripts/**/*.js @led-telecom-team
+
+# Configurações do GitHub
+.github/ @led-telecom-team
+.github/**/*.yml @led-telecom-team
+.github/**/*.md @led-telecom-team
+
+# Exemplos
+examples/ @led-telecom-team
+examples/**/*.html @led-telecom-team
+examples/**/*.tsx @led-telecom-team
+examples/**/*.js @led-telecom-team
+
+# Documentação
+docs/ @led-telecom-team
+docs/**/*.html @led-telecom-team
+
+# CSS gerado
+css/ @led-telecom-team
+css/**/*.css @led-telecom-team

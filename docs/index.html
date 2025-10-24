@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Telecom Design Tokens - Documentação</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: var(--led-typography-family-body);
+            margin: 0;
+            padding: 0;
+            background-color: var(--led-surface-standard);
+            color: var(--led-content-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--led-padding-l);
+        }
+        
+        .header {
+            background-color: var(--led-surface-primary);
+            color: var(--led-content-light);
+            padding: var(--led-padding-xl);
+            text-align: center;
+            margin-bottom: var(--led-margin-xl);
+        }
+        
+        .header h1 {
+            font-family: var(--led-typography-family-title);
+            font-size: var(--led-typography-size-2xl);
+            margin: 0 0 var(--led-margin-s) 0;
+        }
+        
+        .header p {
+            font-size: var(--led-typography-size-l);
+            margin: 0;
+        }
+        
+        .section {
+            background-color: var(--led-surface-standard);
+            border: var(--led-border-size-s) solid var(--led-surface-grey);
+            border-radius: var(--led-border-radius-m);
+            padding: var(--led-padding-l);
+            margin-bottom: var(--led-margin-l);
+        }
+        
+        .section h2 {
+            font-family: var(--led-typography-family-title);
+            color: var(--led-content-primary);
+            margin-top: 0;
+        }
+        
+        .code-block {
+            background-color: var(--led-surface-grey);
+            padding: var(--led-padding-m);
+            border-radius: var(--led-border-radius-s);
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: var(--led-margin-m) 0;
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--led-gap-m);
+            margin: var(--led-margin-l) 0;
+        }
+        
+        .color-swatch {
+            padding: var(--led-padding-m);
+            border-radius: var(--led-border-radius-s);
+            text-align: center;
+            font-weight: var(--led-typography-weight-medium);
+        }
+        
+        .nav {
+            background-color: var(--led-surface-grey);
+            padding: var(--led-padding-m);
+            border-radius: var(--led-border-radius-m);
+            margin-bottom: var(--led-margin-l);
+        }
+        
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--led-gap-m);
+        }
+        
+        .nav a {
+            color: var(--led-content-primary);
+            text-decoration: none;
+            padding: var(--led-padding-s);
+            border-radius: var(--led-border-radius-s);
+            transition: background-color 0.2s ease;
+        }
+        
+        .nav a:hover {
+            background-color: var(--led-surface-primary);
+            color: var(--led-content-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>LED Telecom Design Tokens</h1>
+            <p>Biblioteca de tokens de design para o sistema LED Telecom</p>
+        </header>
+        
+        <nav class="nav">
+            <ul>
+                <li><a href="#instalacao">Instalação</a></li>
+                <li><a href="#uso">Uso</a></li>
+                <li><a href="#tokens">Tokens</a></li>
+                <li><a href="#exemplos">Exemplos</a></li>
+                <li><a href="#api">API</a></li>
+            </ul>
+        </nav>
+        
+        <section id="instalacao" class="section">
+            <h2>Instalação</h2>
+            <div class="code-block">
+npm install @led-telecom/design-tokens
+            </div>
+        </section>
+        
+        <section id="uso" class="section">
+            <h2>Uso</h2>
+            <h3>JavaScript/TypeScript</h3>
+            <div class="code-block">
+import { designTokens, getToken } from '@led-telecom/design-tokens';
+
+const primaryColor = designTokens.surface.primary;
+const errorColor = getToken('surface', 'error');
+            </div>
+            
+            <h3>CSS</h3>
+            <div class="code-block">
+@import '@led-telecom/design-tokens/css/tokens.css';
+
+.my-component {
+  background-color: var(--led-surface-primary);
+  color: var(--led-content-light);
+  padding: var(--led-padding-m);
+}
+            </div>
+        </section>
+        
+        <section id="tokens" class="section">
+            <h2>Paleta de Cores</h2>
+            <div class="color-palette">
+                <div class="color-swatch led-surface-primary led-text-light">Primary</div>
+                <div class="color-swatch led-surface-secondary led-text-dark">Secondary</div>
+                <div class="color-swatch led-surface-error led-text-light">Error</div>
+                <div class="color-swatch led-surface-sucess led-text-light">Success</div>
+                <div class="color-swatch led-surface-warning led-text-dark">Warning</div>
+                <div class="color-swatch led-surface-info led-text-light">Info</div>
+            </div>
+        </section>
+        
+        <section id="exemplos" class="section">
+            <h2>Exemplos</h2>
+            <p>Confira os exemplos práticos:</p>
+            <ul>
+                <li><a href="../examples/basic-usage.html" target="_blank">Uso Básico (HTML)</a></li>
+                <li><a href="../examples/react-example.tsx" target="_blank">Exemplo React</a></li>
+                <li><a href="../examples/vanilla-js-example.js" target="_blank">JavaScript Vanilla</a></li>
+            </ul>
+        </section>
+        
+        <section id="api" class="section">
+            <h2>API</h2>
+            <h3>designTokens</h3>
+            <p>Objeto completo com todos os tokens de design.</p>
+            
+            <h3>getToken(category, key)</h3>
+            <p>Obtém um token específico por categoria e chave.</p>
+            
+            <h3>getTokensByCategory(category)</h3>
+            <p>Obtém todos os tokens de uma categoria específica.</p>
+            
+            <h3>getAllTokens()</h3>
+            <p>Obtém todos os tokens de design.</p>
+        </section>
+    </div>
+</body>
+</html>

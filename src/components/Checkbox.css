@@ -1,0 +1,192 @@
+/* Checkbox - Componente de checkbox do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=118-1025&m=dev */
+
+.led-checkbox {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    gap: var(--gap-s, 8px);
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+}
+
+.led-checkbox__container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.led-checkbox__input {
+    /* Esconder o input nativo */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.led-checkbox__indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.led-checkbox__box {
+    /* Caixa do checkbox - 24px conforme design */
+    width: 24px;
+    height: 24px;
+    border-radius: var(--led-border-radius-s, 4px);
+    border: var(--led-border-size-m, 2px) solid var(--led-content-primary, #1f2453);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.led-checkbox__checkmark {
+    /* Checkmark quando selecionado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--led-content-primary, #1f2453);
+    transition: all 0.2s ease-in-out;
+}
+
+.led-checkbox__checkmark-icon {
+    width: 12px;
+    height: 9px;
+    transition: all 0.2s ease-in-out;
+}
+
+.led-checkbox__label {
+    /* Label do checkbox - tipografia conforme design */
+    font-family: var(--family-body, 'Montserrat', sans-serif);
+    font-size: var(--size-m, 14px);
+    font-weight: var(--weight-regular, normal);
+    line-height: normal;
+    color: var(--content-dark, #1f1f1f);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+/* Estados do checkbox - conforme design do Figma */
+
+/* Estado Off - data-name="state=off" data-node-id="118:1026" */
+.led-checkbox--off .led-checkbox__box {
+    border-color: var(--led-content-primary, #1f2453);
+    background-color: transparent;
+}
+
+.led-checkbox--off .led-checkbox__checkmark {
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* Estado On - data-name="state=on" data-node-id="118:1030" */
+.led-checkbox--on .led-checkbox__box {
+    border-color: var(--led-content-primary, #1f2453);
+    background-color: var(--led-surface-standard, #ffffff);
+}
+
+.led-checkbox--on .led-checkbox__checkmark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Estado Disabled */
+.led-checkbox--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.led-checkbox--disabled .led-checkbox__box {
+    border-color: var(--led-content-disable, #7f7f7f);
+    background-color: transparent;
+}
+
+.led-checkbox--disabled .led-checkbox__checkmark {
+    color: var(--led-content-disable, #7f7f7f);
+}
+
+.led-checkbox--disabled .led-checkbox__label {
+    color: var(--led-content-disable, #7f7f7f);
+    cursor: not-allowed;
+}
+
+/* Estados interativos (hover e focus) */
+.led-checkbox:not(.led-checkbox--disabled):hover .led-checkbox__box {
+    border-color: var(--led-content-primary, #1f2453);
+    box-shadow: 0 0 0 2px rgba(31, 36, 83, 0.1);
+}
+
+.led-checkbox:not(.led-checkbox--disabled):hover .led-checkbox__label {
+    color: var(--led-content-primary, #1f2453);
+}
+
+.led-checkbox__input:focus-visible+.led-checkbox__indicator .led-checkbox__box {
+    outline: 2px solid var(--led-content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Animação de transição suave */
+.led-checkbox__box,
+.led-checkbox__checkmark,
+.led-checkbox__checkmark-icon,
+.led-checkbox__label {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-checkbox {
+        gap: var(--gap-xs, 4px);
+    }
+
+    .led-checkbox__box {
+        width: 20px;
+        height: 20px;
+    }
+
+    .led-checkbox__checkmark-icon {
+        width: 10px;
+        height: 8px;
+    }
+
+    .led-checkbox__label {
+        font-size: var(--size-sm, 12px);
+    }
+}
+
+/* Acessibilidade - melhorar contraste em modo escuro */
+@media (prefers-contrast: high) {
+    .led-checkbox__box {
+        border-width: 3px;
+    }
+
+    .led-checkbox--disabled .led-checkbox__box {
+        border-color: var(--led-content-dark, #1f1f1f);
+    }
+}
+
+/* Redução de movimento para usuários que preferem menos animações */
+@media (prefers-reduced-motion: reduce) {
+
+    .led-checkbox__box,
+    .led-checkbox__checkmark,
+    .led-checkbox__checkmark-icon,
+    .led-checkbox__label {
+        transition: none;
+    }
+}

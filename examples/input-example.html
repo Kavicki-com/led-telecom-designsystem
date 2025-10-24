@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Telecom - Input Component Example</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--content-primary, #1f2453);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .example-section {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--content-dark, #1f1f1f);
+        }
+
+        .input-demo {
+            margin-bottom: 20px;
+        }
+
+        .input-demo:last-child {
+            margin-bottom: 0;
+        }
+
+        .demo-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>LED Telecom - Componente Input</h1>
+
+        <div class="examples-grid">
+            <!-- Estados do Input -->
+            <div class="example-section">
+                <div class="example-title">Estados do Input</div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Estado Default</div>
+                    <div class="led-input-container" data-name="state=default" data-node-id="118:1123">
+                        <p class="led-input__label">Label</p>
+                        <div class="led-input__text-area led-input__text-area--default">
+                            <input type="text" class="led-input__text led-input__text--default"
+                                placeholder="Digite aqui..." value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Estado Hover</div>
+                    <div class="led-input-container" data-name="state=hover" data-node-id="118:1121">
+                        <p class="led-input__label">Label</p>
+                        <div class="led-input__text-area led-input__text-area--hover">
+                            <input type="text" class="led-input__text led-input__text--hover"
+                                placeholder="Digite aqui..." value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Estado OnClick</div>
+                    <div class="led-input-container" data-name="state=onclick" data-node-id="118:1120">
+                        <p class="led-input__label">Label</p>
+                        <div class="led-input__text-area led-input__text-area--onclick">
+                            <span class="led-input__cursor">|</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Estado Filled</div>
+                    <div class="led-input-container" data-name="state=filled" data-node-id="118:1119">
+                        <p class="led-input__label">Label</p>
+                        <div class="led-input__text-area led-input__text-area--filled">
+                            <input type="text" class="led-input__text led-input__text--filled"
+                                placeholder="Digite aqui..." value="Texto preenchido">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Estado Disable</div>
+                    <div class="led-input-container" data-name="state=disable" data-node-id="118:1122">
+                        <p class="led-input__label">Label</p>
+                        <div class="led-input__text-area led-input__text-area--disable">
+                            <input type="text" class="led-input__text led-input__text--disable"
+                                placeholder="Digite aqui..." value="" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tipos de Input -->
+            <div class="example-section">
+                <div class="example-title">Tipos de Input</div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Input de Texto</div>
+                    <div class="led-input-container">
+                        <p class="led-input__label">Nome</p>
+                        <div class="led-input__text-area led-input__text-area--default">
+                            <input type="text" class="led-input__text led-input__text--default"
+                                placeholder="Digite seu nome" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Input de Email</div>
+                    <div class="led-input-container">
+                        <p class="led-input__label">Email</p>
+                        <div class="led-input__text-area led-input__text-area--default">
+                            <input type="email" class="led-input__text led-input__text--default"
+                                placeholder="seu@email.com" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Input de Senha</div>
+                    <div class="led-input-container">
+                        <p class="led-input__label">Senha</p>
+                        <div class="led-input__text-area led-input__text-area--default">
+                            <input type="password" class="led-input__text led-input__text--default"
+                                placeholder="Digite sua senha" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Input com Descrição</div>
+                    <div class="led-input-container">
+                        <p class="led-input__label">Telefone</p>
+                        <div class="led-input__text-area led-input__text-area--default">
+                            <input type="tel" class="led-input__text led-input__text--default"
+                                placeholder="(11) 99999-9999" value="">
+                        </div>
+                        <p class="led-input__description">Digite seu número de telefone com DDD</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input com Ícone -->
+            <div class="example-section">
+                <div class="example-title">Input com Ícone</div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Input com Ícone de Busca</div>
+                    <div class="led-input-container">
+                        <p class="led-input__label">Buscar</p>
+                        <div class="led-input__text-area led-input__text-area--default">
+                            <span class="led-input__icon">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10.5 9.5L13 12M10.5 6.5C10.5 8.70914 8.70914 10.5 6.5 10.5C4.29086 10.5 2.5 8.70914 2.5 6.5C2.5 4.29086 4.29086 2.5 6.5 2.5C8.70914 2.5 10.5 4.29086 10.5 6.5Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            <input type="text" class="led-input__text led-input__text--default"
+                                placeholder="Digite para buscar..." value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-demo">
+                    <div class="demo-label">Input sem Label</div>
+                    <div class="led-input-container">
+                        <div class="led-input__text-area led-input__text-area--default">
+                            <input type="text" class="led-input__text led-input__text--default"
+                                placeholder="Digite aqui..." value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+            <p style="margin: 0; color: #666; font-size: 14px;">
+                Componente Input do LED Telecom Design System<br>
+                Baseado no design do Figma: <a
+                    href="https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=118-1124&m=dev"
+                    target="_blank" style="color: var(--content-primary, #1f2453);">Ver no Figma</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

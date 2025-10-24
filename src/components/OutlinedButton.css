@@ -1,0 +1,148 @@
+/* OutlinedButton - Componente de botão outlined do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=118-934&m=dev */
+
+.led-button-outlined {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs, 4px);
+    box-sizing: border-box;
+
+    /* Espaçamento */
+    padding: var(--padding-sm, 12px);
+
+    /* Bordas */
+    border: var(--border-size-s, 1px) solid var(--surface-primary, #1f2453);
+    border-radius: var(--border-radius-l, 16px);
+
+    /* Tipografia */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+    white-space: nowrap;
+
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Posicionamento */
+    position: relative;
+    overflow: hidden;
+
+    /* Reset de estilos padrão do button */
+    background: transparent;
+    outline: none;
+}
+
+/* Estados do botão - conforme design do Figma */
+
+/* Estado Default - data-name="state=default" data-node-id="118:933" */
+.led-button-outlined--default {
+    background-color: transparent;
+    color: var(--surface-primary, #1f2453);
+    border-color: var(--surface-primary, #1f2453);
+}
+
+/* Estado Hover - data-name="state=hover" data-node-id="118:931" */
+.led-button-outlined--hover {
+    background-color: var(--surface-primary, #1f2453);
+    color: var(--content-light, #fafafa);
+    border-color: var(--surface-primary, #1f2453);
+}
+
+/* Estado Pressed - data-name="state=pressed" data-node-id="118:932" */
+.led-button-outlined--pressed {
+    background-color: var(--surface-primary, #1f2453);
+    color: var(--content-light, #fafafa);
+    border-color: var(--surface-primary, #1f2453);
+}
+
+.led-button-outlined--pressed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: 0px 4px 24px 0px inset rgba(29, 29, 29, 0.16);
+}
+
+/* Estado Disable - data-name="state=disable" data-node-id="118:930" */
+.led-button-outlined--disable {
+    background-color: transparent;
+    color: var(--content-disable, #7f7f7f);
+    border-color: var(--content-disable, #7f7f7f);
+    cursor: not-allowed;
+}
+
+/* Estados interativos reais (não controlados por props) */
+.led-button-outlined:not(.led-button-outlined--disable):hover {
+    background-color: var(--surface-primary, #1f2453);
+    color: var(--content-light, #fafafa);
+    border-color: var(--surface-primary, #1f2453);
+}
+
+.led-button-outlined:not(.led-button-outlined--disable):active {
+    background-color: var(--surface-primary, #1f2453);
+    color: var(--content-light, #fafafa);
+    border-color: var(--surface-primary, #1f2453);
+}
+
+.led-button-outlined:not(.led-button-outlined--disable):active::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: 0px 4px 24px 0px inset rgba(29, 29, 29, 0.16);
+}
+
+/* Elementos internos do botão - conforme design do Figma */
+
+.led-button-outlined__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    color: inherit;
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.led-button-outlined__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    color: inherit;
+}
+
+.led-button-outlined__icon--left {
+    margin-right: var(--gap-xs, 4px);
+}
+
+.led-button-outlined__icon--right {
+    margin-left: var(--gap-xs, 4px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-button-outlined {
+        padding: var(--padding-s, 8px);
+        font-size: 12px;
+    }
+}
+
+/* Estados de foco para acessibilidade */
+.led-button-outlined:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Animação de transição suave */
+.led-button-outlined * {
+    transition: inherit;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Telecom Design Tokens - Exemplo Básico</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: var(--led-typography-family-body);
+            margin: 0;
+            padding: var(--led-padding-m);
+            background-color: var(--led-surface-standard);
+            color: var(--led-content-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background-color: var(--led-surface-primary);
+            color: var(--led-content-light);
+            padding: var(--led-padding-l);
+            border-radius: var(--led-border-radius-m);
+            margin-bottom: var(--led-margin-l);
+        }
+        
+        .card {
+            background-color: var(--led-surface-standard);
+            border: var(--led-border-size-s) solid var(--led-surface-grey);
+            border-radius: var(--led-border-radius-m);
+            padding: var(--led-padding-l);
+            margin-bottom: var(--led-margin-m);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .button {
+            display: inline-block;
+            padding: var(--led-padding-sm) var(--led-padding-m);
+            border: none;
+            border-radius: var(--led-border-radius-s);
+            cursor: pointer;
+            font-family: var(--led-typography-family-body);
+            font-weight: var(--led-typography-weight-medium);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .button-primary {
+            background-color: var(--led-surface-primary);
+            color: var(--led-content-light);
+        }
+        
+        .button-primary:hover {
+            background-color: var(--led-surface-primary-light);
+        }
+        
+        .button-secondary {
+            background-color: var(--led-surface-secondary);
+            color: var(--led-content-dark);
+        }
+        
+        .button-secondary:hover {
+            background-color: var(--led-surface-secondary-light);
+        }
+        
+        .button-error {
+            background-color: var(--led-surface-error);
+            color: var(--led-content-light);
+        }
+        
+        .button-error:hover {
+            background-color: var(--led-surface-error-light);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--led-gap-m);
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--led-gap-s);
+            margin: var(--led-margin-l) 0;
+        }
+        
+        .color-swatch {
+            padding: var(--led-padding-m);
+            border-radius: var(--led-border-radius-s);
+            text-align: center;
+            font-size: var(--led-typography-size-sm);
+        }
+        
+        .spacing-demo {
+            background-color: var(--led-surface-grey);
+            padding: var(--led-padding-m);
+            border-radius: var(--led-border-radius-s);
+            margin: var(--led-margin-m) 0;
+        }
+        
+        .spacing-box {
+            background-color: var(--led-surface-primary);
+            height: 20px;
+            margin-bottom: var(--led-margin-xs);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>LED Telecom Design Tokens</h1>
+            <p>Demonstração dos tokens de design em uso</p>
+        </header>
+        
+        <main>
+            <section class="card">
+                <h2>Paleta de Cores</h2>
+                <div class="color-palette">
+                    <div class="color-swatch led-surface-primary led-text-light">Primary</div>
+                    <div class="color-swatch led-surface-secondary led-text-dark">Secondary</div>
+                    <div class="color-swatch led-surface-error led-text-light">Error</div>
+                    <div class="color-swatch led-surface-sucess led-text-light">Success</div>
+                    <div class="color-swatch led-surface-warning led-text-dark">Warning</div>
+                    <div class="color-swatch led-surface-info led-text-light">Info</div>
+                </div>
+            </section>
+            
+            <section class="card">
+                <h2>Botões</h2>
+                <div style="display: flex; gap: var(--led-gap-s); flex-wrap: wrap;">
+                    <button class="button button-primary">Primary</button>
+                    <button class="button button-secondary">Secondary</button>
+                    <button class="button button-error">Error</button>
+                </div>
+            </section>
+            
+            <section class="card">
+                <h2>Espaçamento</h2>
+                <div class="spacing-demo">
+                    <div class="spacing-box" style="width: var(--led-padding-xs);"></div>
+                    <div class="spacing-box" style="width: var(--led-padding-s);"></div>
+                    <div class="spacing-box" style="width: var(--led-padding-sm);"></div>
+                    <div class="spacing-box" style="width: var(--led-padding-m);"></div>
+                    <div class="spacing-box" style="width: var(--led-padding-l);"></div>
+                    <div class="spacing-box" style="width: var(--led-padding-xl);"></div>
+                </div>
+            </section>
+            
+            <section class="card">
+                <h2>Tipografia</h2>
+                <div class="grid">
+                    <div>
+                        <h3 class="led-font-title">Título com Raleway</h3>
+                        <p class="led-font-body">Texto do corpo com Montserrat</p>
+                    </div>
+                    <div>
+                        <p class="led-text-s">Texto pequeno (8px)</p>
+                        <p class="led-text-sm">Texto pequeno-médio (12px)</p>
+                        <p class="led-text-m">Texto médio (14px)</p>
+                        <p class="led-text-l">Texto grande (24px)</p>
+                        <p class="led-text-xl">Texto extra grande (28px)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="card">
+                <h2>Classes Utilitárias</h2>
+                <div class="grid">
+                    <div>
+                        <h3>Espaçamento</h3>
+                        <div class="led-p-m led-surface-grey led-radius-s">
+                            <p>Padding médio com fundo cinza</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Bordas</h3>
+                        <div class="led-border-m led-radius-l" style="border-color: var(--led-surface-primary); padding: var(--led-padding-s);">
+                            <p>Borda média com raio grande</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

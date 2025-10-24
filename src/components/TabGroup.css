@@ -1,0 +1,54 @@
+/* TabGroup - Componente de grupo de tabs do LED Telecom */
+/* Facilita o uso de múltiplas tabs com seleção automática */
+
+.led-tab-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.led-tab-group .led-tabs-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    position: relative;
+    width: 100%;
+}
+
+.led-tab-group .led-tab {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    height: 24px;
+    width: 89px;
+    flex-shrink: 0;
+}
+
+/* Primeira tab ativa - com borda inferior destacada */
+.led-tab-group .led-tab:first-child.led-tab--active {
+    border-bottom: 2px solid var(--content-primary, #1f2453);
+    height: 26px;
+}
+
+/* Tabs subsequentes - com borda inferior sutil */
+.led-tab-group .led-tab:not(:first-child) {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+}
+
+/* Tabs desabilitadas */
+.led-tab-group .led-tab.led-tab--disable {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    height: 24px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-tab-group .led-tab {
+        width: auto;
+        min-width: 60px;
+        padding: var(--padding-xs, 4px) var(--padding-s, 6px);
+        font-size: var(--size-sm, 12px);
+    }
+}

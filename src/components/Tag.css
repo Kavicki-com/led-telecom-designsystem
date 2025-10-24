@@ -1,0 +1,165 @@
+/* Tag - Componente de tag de status do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=124-1284&m=dev */
+
+.led-tag {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-s, 10px);
+    box-sizing: border-box;
+
+    /* Espaçamento */
+    padding: var(--padding-s, 10px);
+
+    /* Bordas */
+    border: var(--border-size-s, 1px) solid;
+    border-radius: var(--border-radius-m, 8px);
+
+    /* Tipografia */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    /* Medium */
+    line-height: normal;
+    text-align: center;
+    white-space: nowrap;
+
+    /* Posicionamento */
+    position: relative;
+    flex-shrink: 0;
+
+    /* Reset de estilos padrão */
+    background: none;
+    outline: none;
+    cursor: default;
+}
+
+/* Variantes da tag - conforme design do Figma */
+
+/* Variante Vencido - data-name="Property 1=Vencido" data-node-id="124:1283" */
+.led-tag--vencido {
+    background-color: var(--surface-standard, #fafafa);
+    border-color: var(--content-error, #e5102e);
+    color: var(--content-error, #e5102e);
+    width: 104px;
+}
+
+/* Variante Em atraso - data-name="Property 1=Em atraso" data-node-id="124:1285" */
+.led-tag--em-atraso {
+    background-color: var(--surface-standard, #fafafa);
+    border-color: var(--content-secondary, #ffaa00);
+    color: var(--content-secondary, #ffaa00);
+}
+
+/* Variante Pago - data-name="Property 1=Pago" data-node-id="124:1287" */
+.led-tag--pago {
+    background-color: var(--surface-standard, #fafafa);
+    border-color: var(--content-primary, #1f2453);
+    color: var(--content-primary, #1f2453);
+    width: 104px;
+}
+
+/* Estados da tag */
+
+/* Estado Default */
+.led-tag--default {
+    /* Estilos já definidos nas variantes */
+}
+
+/* Estado Hover */
+.led-tag--hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estado Pressed */
+.led-tag--pressed {
+    opacity: 0.9;
+    transform: translateY(0);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tag clicável */
+.led-tag--clickable {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.led-tag--clickable:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.led-tag--clickable:active {
+    opacity: 0.9;
+    transform: translateY(0);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Elementos internos da tag */
+
+.led-tag__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    /* Medium */
+    line-height: normal;
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Herança de cores do texto baseada na variante */
+.led-tag--vencido .led-tag__label {
+    color: var(--content-error, #e5102e);
+}
+
+.led-tag--em-atraso .led-tag__label {
+    color: var(--content-secondary, #ffaa00);
+}
+
+.led-tag--pago .led-tag__label {
+    color: var(--content-primary, #1f2453);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-tag {
+        padding: var(--padding-xs, 8px);
+        font-size: 14px;
+    }
+
+    .led-tag__label {
+        font-size: 14px;
+    }
+}
+
+/* Estados de foco para acessibilidade */
+.led-tag--clickable:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Animação de transição suave */
+.led-tag * {
+    transition: inherit;
+}
+
+/* Estados específicos para cada variante no hover */
+.led-tag--vencido.led-tag--clickable:hover {
+    background-color: var(--surface-error-light, #fab3bd);
+    border-color: var(--content-error, #e5102e);
+}
+
+.led-tag--em-atraso.led-tag--clickable:hover {
+    background-color: var(--surface-secondary-light, #ffefc2);
+    border-color: var(--content-secondary, #ffaa00);
+}
+
+.led-tag--pago.led-tag--clickable:hover {
+    background-color: var(--surface-primary-light, #9da5e8);
+    border-color: var(--content-primary, #1f2453);
+}

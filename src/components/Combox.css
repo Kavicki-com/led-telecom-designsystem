@@ -1,0 +1,315 @@
+/* Combox Component Styles */
+.led-combox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+/* Label */
+.led-combox__label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    color: var(--content-dark, #1f1f1f);
+    margin: 0;
+    padding: 0;
+}
+
+/* Text Area Container */
+.led-combox__text-area {
+    display: flex;
+    align-items: stretch;
+    padding: 12px;
+    border: 1px solid var(--content-dark, #1f1f1f);
+    border-radius: 8px;
+    background: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    cursor: text;
+    transition: all 0.2s ease;
+    min-height: 48px;
+}
+
+.led-combox__text-area:hover {
+    border-color: var(--content-primary, #1f2453);
+}
+
+.led-combox__text-area--disable {
+    border-color: var(--content-disable, #7f7f7f);
+    background-color: var(--surface-grey, #dadada);
+    cursor: not-allowed;
+}
+
+.led-combox__text-area--disable:hover {
+    border-color: var(--content-disable, #7f7f7f);
+}
+
+/* Input Text */
+.led-combox__text {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: normal;
+    color: var(--content-dark, #1f1f1f);
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-right: 8px;
+    height: 100%;
+    align-self: stretch;
+}
+
+.led-combox__text::placeholder {
+    color: var(--content-disable, #7f7f7f);
+}
+
+.led-combox__text--disable {
+    color: var(--content-disable, #7f7f7f);
+    cursor: not-allowed;
+}
+
+.led-combox__text--disable::placeholder {
+    color: var(--content-disable, #7f7f7f);
+}
+
+/* Icon Container */
+.led-combox__icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    height: 100%;
+    align-self: stretch;
+}
+
+.led-combox__icon-container:hover {
+    transform: scale(1.1);
+}
+
+.led-combox__icon {
+    width: 14px;
+    height: 14px;
+    color: var(--content-dark, #1f1f1f);
+    transition: color 0.2s ease;
+}
+
+.led-combox__icon-container:hover .led-combox__icon {
+    color: var(--content-primary, #1f2453);
+}
+
+.led-combox__text-area--disable .led-combox__icon {
+    color: var(--content-disable, #7f7f7f);
+}
+
+.led-combox__text-area--disable .led-combox__icon-container {
+    cursor: not-allowed;
+}
+
+.led-combox__text-area--disable .led-combox__icon-container:hover {
+    transform: none;
+}
+
+/* Dropdown */
+.led-combox__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface-standard, #fafafa);
+    border: 1px solid var(--content-primary, #1f2453);
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    max-height: 200px;
+    /* Limita a altura para 4 opções */
+    overflow-y: auto;
+    /* Adiciona scroll quando necessário */
+}
+
+.led-combox__dropdown--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.led-combox__dropdown--closed {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+}
+
+/* Options */
+.led-combox__option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--neutral-200, #bfbfbf);
+}
+
+.led-combox__option:last-child {
+    border-bottom: none;
+}
+
+.led-combox__option:hover {
+    background-color: var(--surface-hover, #fafafa);
+}
+
+.led-combox__option--first {
+    border-bottom: 1px solid var(--neutral-200, #bfbfbf);
+}
+
+.led-combox__option-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: normal;
+    color: var(--content-primary, #1f2453);
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+/* Description */
+.led-combox__description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: normal;
+    color: var(--content-dark, #1f1f1f);
+    margin: 0;
+    padding: 0;
+}
+
+/* States */
+.led-combox--default .led-combox__text-area {
+    border-color: var(--content-dark, #1f1f1f);
+}
+
+.led-combox--open .led-combox__text-area {
+    border-color: var(--content-primary, #1f2453);
+}
+
+.led-combox--disable .led-combox__text-area {
+    border-color: var(--content-disable, #7f7f7f);
+    background-color: var(--surface-grey, #dadada);
+}
+
+.led-combox--disable .led-combox__label {
+    color: var(--content-disable, #7f7f7f);
+}
+
+.led-combox--disable .led-combox__description {
+    color: var(--content-disable, #7f7f7f);
+}
+
+/* Focus states */
+.led-combox__text:focus {
+    outline: none;
+}
+
+.led-combox__text-area:focus-within {
+    border-color: var(--content-primary, #1f2453);
+    box-shadow: 0 0 0 2px rgba(31, 36, 83, 0.1);
+}
+
+/* Scroll do dropdown */
+.led-combox__dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.led-combox__dropdown::-webkit-scrollbar-track {
+    background: var(--surface-grey, #dadada);
+    border-radius: 3px;
+}
+
+.led-combox__dropdown::-webkit-scrollbar-thumb {
+    background: var(--content-primary, #1f2453);
+    border-radius: 3px;
+}
+
+.led-combox__dropdown::-webkit-scrollbar-thumb:hover {
+    background: var(--content-dark, #1f1f1f);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .led-combox__text-area {
+        padding: 10px;
+        gap: 12px;
+    }
+
+    .led-combox__text {
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+    }
+
+    .led-combox__dropdown {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+}
+
+/* Animation for dropdown arrow */
+.led-combox__icon-container {
+    transition: transform 0.2s ease;
+}
+
+.led-combox__dropdown--open+.led-combox__icon-container .led-combox__icon {
+    transform: rotate(180deg);
+}
+
+/* Accessibility improvements */
+.led-combox__text:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+.led-combox__option:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: -2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .led-combox__text-area {
+        border-width: 2px;
+    }
+
+    .led-combox__dropdown {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    .led-combox__dropdown,
+    .led-combox__icon-container,
+    .led-combox__option {
+        transition: none;
+    }
+}

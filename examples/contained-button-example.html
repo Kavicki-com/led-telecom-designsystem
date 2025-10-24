@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContainedButton - LED Telecom Design System</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../src/components/ContainedButton.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: var(--led-content-primary, #1f2453);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--led-content-dark, #1f1f1f);
+            font-size: 1.1rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: var(--led-content-primary, #1f2453);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .button-item {
+            text-align: center;
+        }
+
+        .button-item h3 {
+            color: var(--led-content-dark, #1f1f1f);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .code-block code {
+            color: #d63384;
+        }
+
+        /* Simulação dos estados do botão */
+        .led-button-contained {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 12px;
+            border: none;
+            border-radius: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: normal;
+            text-align: center;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .led-button-contained--default {
+            background-color: var(--led-surface-primary, #1f2453);
+            color: var(--led-content-light, #fafafa);
+            box-shadow: 0px 4px 16px 0px rgba(29, 29, 29, 0.16);
+        }
+
+        .led-button-contained--hover {
+            background-image: linear-gradient(90deg, rgba(250, 250, 250, 0.08) 0%, rgba(250, 250, 250, 0.08) 100%),
+                linear-gradient(90deg, rgb(31, 36, 83) 0%, rgb(31, 36, 83) 100%);
+            color: var(--led-content-light, #fafafa);
+        }
+
+        .led-button-contained--pressed {
+            background-color: var(--led-surface-primary, #1f2453);
+            color: var(--led-content-light, #fafafa);
+        }
+
+        .led-button-contained--pressed::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            box-shadow: 0px 4px 24px 0px inset rgba(29, 29, 29, 0.16);
+        }
+
+        .led-button-contained--disable {
+            background-color: var(--led-surface-primary-light, #9da5e8);
+            color: var(--led-content-light, #fafafa);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .led-button-contained__label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: normal;
+            color: inherit;
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            background: currentColor;
+            mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>') no-repeat center;
+            mask-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ContainedButton</h1>
+            <p>Componente de botão contido do LED Telecom Design System</p>
+        </div>
+
+        <div class="section">
+            <h2>Estados do Botão</h2>
+            <div class="button-grid">
+                <div class="button-item">
+                    <h3>Default</h3>
+                    <button class="led-button-contained led-button-contained--default">
+                        <span class="led-button-contained__label">Button</span>
+                    </button>
+                </div>
+
+                <div class="button-item">
+                    <h3>Hover</h3>
+                    <button class="led-button-contained led-button-contained--hover">
+                        <span class="led-button-contained__label">Button</span>
+                    </button>
+                </div>
+
+                <div class="button-item">
+                    <h3>Pressed</h3>
+                    <button class="led-button-contained led-button-contained--pressed">
+                        <span class="led-button-contained__label">Button</span>
+                    </button>
+                </div>
+
+                <div class="button-item">
+                    <h3>Disable</h3>
+                    <button class="led-button-contained led-button-contained--disable" disabled>
+                        <span class="led-button-contained__label">Button</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Botões com Ícones</h2>
+            <div class="button-grid">
+                <div class="button-item">
+                    <h3>Ícone à Esquerda</h3>
+                    <button class="led-button-contained led-button-contained--default">
+                        <span class="icon"></span>
+                        <span class="led-button-contained__label">Button</span>
+                    </button>
+                </div>
+
+                <div class="button-item">
+                    <h3>Ícone à Direita</h3>
+                    <button class="led-button-contained led-button-contained--default">
+                        <span class="led-button-contained__label">Button</span>
+                        <span class="icon"></span>
+                    </button>
+                </div>
+
+                <div class="button-item">
+                    <h3>Ambos os Ícones</h3>
+                    <button class="led-button-contained led-button-contained--default">
+                        <span class="icon"></span>
+                        <span class="led-button-contained__label">Button</span>
+                        <span class="icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Exemplo de Uso em React</h2>
+            <div class="code-block">
+                <pre><code>import { ContainedButton } from '@led-telecom/design-tokens';
+
+function MyComponent() {
+  return (
+    &lt;div&gt;
+      {/* Botão básico */}
+      &lt;ContainedButton 
+        label="Clique aqui" 
+        onClick={() => console.log('Clicado!')} 
+      /&gt;
+      
+      {/* Botão com ícone */}
+      &lt;ContainedButton 
+        label="Salvar" 
+        displayIconLeft={true}
+        icon={&lt;SaveIcon /&gt;}
+        state="default"
+      /&gt;
+      
+      {/* Botão desabilitado */}
+      &lt;ContainedButton 
+        label="Desabilitado" 
+        disabled={true}
+        state="disable"
+      /&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Props do Componente</h2>
+            <div class="code-block">
+                <pre><code>interface ContainedButtonProps {
+  /** Texto do botão */
+  label?: string;
+  /** Se deve exibir o label */
+  displayLabel?: boolean;
+  /** Ícone à esquerda */
+  displayIconLeft?: boolean;
+  /** Ícone à direita */
+  displayIconRight?: boolean;
+  /** Ícone customizado */
+  icon?: React.ReactNode | null;
+  /** Estado do botão */
+  state?: 'default' | 'disable' | 'hover' | 'pressed';
+  /** Função de callback para clique */
+  onClick?: () => void;
+  /** Classes CSS adicionais */
+  className?: string;
+  /** Se o botão está desabilitado */
+  disabled?: boolean;
+}</code></pre>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

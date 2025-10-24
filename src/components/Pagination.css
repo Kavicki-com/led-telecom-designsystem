@@ -1,0 +1,237 @@
+/* Pagination - Componente de paginação do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=124-1184&m=dev */
+
+.led-pagination {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 320px;
+    position: relative;
+}
+
+/* Botão de página - conforme design do Figma */
+.led-pagination__page-button {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs, 4px);
+    box-sizing: border-box;
+
+    /* Espaçamento */
+    padding: var(--padding-sm, 12px) var(--padding-m, 16px);
+
+    /* Bordas */
+    border: var(--border-size-m, 2px) solid var(--content-primary, #1f2453);
+    border-radius: var(--border-radius-l, 16px);
+
+    /* Tipografia */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+    white-space: nowrap;
+
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Posicionamento */
+    position: relative;
+    overflow: hidden;
+
+    /* Reset de estilos padrão do button */
+    background: transparent;
+    outline: none;
+    color: var(--content-primary, #1f2453);
+}
+
+/* Botão de página ativo */
+.led-pagination__page-button--active {
+    background-color: var(--surface-secondary, #ffaa00);
+    border-color: var(--surface-secondary, #ffaa00);
+    color: var(--content-primary, #1f2453);
+}
+
+/* Botão de navegação - conforme design do Figma */
+.led-pagination__nav-button {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs, 4px);
+    box-sizing: border-box;
+
+    /* Espaçamento */
+    padding: var(--padding-sm, 12px) var(--padding-m, 16px);
+
+    /* Bordas */
+    border: none;
+    border-radius: var(--border-radius-l, 16px);
+
+    /* Tipografia */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    text-align: center;
+
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Posicionamento */
+    position: relative;
+    overflow: hidden;
+
+    /* Reset de estilos padrão do button */
+    background: transparent;
+    outline: none;
+    color: var(--content-primary, #1f2453);
+}
+
+/* Botão de navegação ativo */
+.led-pagination__nav-button--active {
+    background-color: var(--surface-secondary, #ffaa00);
+    color: var(--content-primary, #1f2453);
+}
+
+/* Ícone de navegação */
+.led-pagination__nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    padding: var(--padding-xs, 4px);
+    box-sizing: border-box;
+}
+
+/* Botão de ellipsis - conforme design do Figma */
+.led-pagination__ellipsis {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs, 4px);
+    box-sizing: border-box;
+
+    /* Espaçamento */
+    padding: var(--padding-sm, 12px);
+
+    /* Bordas */
+    border-radius: var(--border-radius-l, 16px);
+
+    /* Posicionamento */
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Texto da página - conforme design do Figma */
+.led-pagination__page-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    color: var(--content-primary, #1f2453);
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+/* Texto do ellipsis - conforme design do Figma */
+.led-pagination__ellipsis-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    color: var(--content-primary, #1f2453);
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+/* Estados interativos reais (não controlados por props) */
+.led-pagination__page-button:not(:disabled):hover {
+    background-color: var(--surface-secondary, #ffaa00);
+    border-color: var(--surface-secondary, #ffaa00);
+    color: var(--content-primary, #1f2453);
+}
+
+.led-pagination__nav-button:not(:disabled):hover {
+    background-color: var(--surface-secondary, #ffaa00);
+    color: var(--content-primary, #1f2453);
+}
+
+/* Estados de foco para acessibilidade */
+.led-pagination__page-button:focus-visible,
+.led-pagination__nav-button:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Estado desabilitado */
+.led-pagination__page-button:disabled,
+.led-pagination__nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-pagination {
+        width: 100%;
+        max-width: 320px;
+        gap: 8px;
+    }
+
+    .led-pagination__page-button,
+    .led-pagination__nav-button {
+        padding: var(--padding-s, 8px) var(--padding-sm, 12px);
+        font-size: 12px;
+    }
+
+    .led-pagination__nav-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .led-pagination {
+        gap: 4px;
+    }
+
+    .led-pagination__page-button,
+    .led-pagination__nav-button {
+        padding: var(--padding-xs, 4px) var(--padding-s, 8px);
+        font-size: 11px;
+    }
+
+    .led-pagination__nav-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Animação de transição suave */
+.led-pagination * {
+    transition: inherit;
+}
+
+/* Estados de hover para botões não ativos */
+.led-pagination__page-button:not(.led-pagination__page-button--active):not(:disabled):hover {
+    background-color: var(--surface-secondary-light, #ffefc2);
+    border-color: var(--surface-secondary, #ffaa00);
+}
+
+.led-pagination__nav-button:not(.led-pagination__nav-button--active):not(:disabled):hover {
+    background-color: var(--surface-secondary-light, #ffefc2);
+}

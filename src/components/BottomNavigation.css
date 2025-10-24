@@ -1,0 +1,248 @@
+/* BottomNavigation - Componente de navegação inferior do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=124-957&m=dev */
+
+.led-bottom-navigation {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    /* Aumentado para acomodar 6 itens */
+    height: 72px;
+    box-sizing: border-box;
+
+    /* Posicionamento */
+    position: relative;
+    overflow: hidden;
+
+    /* Reset de estilos padrão */
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+/* Itens de navegação - conforme design do Figma */
+.led-bottom-navigation__item {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: var(--gap-xs, 4px);
+    box-sizing: border-box;
+
+    /* Dimensões - área mínima de 44px x 44px */
+    min-height: 44px;
+    min-width: 44px;
+    height: 100%;
+    padding: var(--padding-s, 8px);
+
+    /* Estilo padrão - estado inativo */
+    background-color: var(--surface-standard, #fafafa);
+    border: none;
+    border-radius: 0;
+
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Posicionamento */
+    position: relative;
+    overflow: hidden;
+
+    /* Reset de estilos padrão do button */
+    outline: none;
+}
+
+/* Estado ativo - conforme design do Figma */
+.led-bottom-navigation__item--active {
+    background-color: var(--surface-primary, #1f2453);
+}
+
+/* Ícone de navegação - conforme design do Figma */
+.led-bottom-navigation__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Estilos para ícones SVG */
+.led-bottom-navigation__icon svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* Cores dos ícones baseadas no estado */
+.led-bottom-navigation__item:not(.led-bottom-navigation__item--active) .led-bottom-navigation__icon {
+    color: var(--content-primary, #1f2453);
+}
+
+.led-bottom-navigation__item--active .led-bottom-navigation__icon {
+    color: var(--content-light, #fafafa);
+}
+
+/* Estados interativos - conforme design do Figma */
+.led-bottom-navigation__item:not(:disabled):hover {
+    background-color: var(--surface-hover, #fafafa);
+}
+
+.led-bottom-navigation__item:not(:disabled):hover .led-bottom-navigation__icon {
+    color: var(--content-primary, #1f2453);
+}
+
+.led-bottom-navigation__item--active:not(:disabled):hover {
+    background-color: var(--surface-primary, #1f2453);
+}
+
+.led-bottom-navigation__item--active:not(:disabled):hover .led-bottom-navigation__icon {
+    color: var(--content-light, #fafafa);
+}
+
+/* Estado pressionado - conforme design do Figma */
+.led-bottom-navigation__item:not(:disabled):active {
+    background-color: var(--surface-primary, #1f2453);
+    transform: scale(0.98);
+}
+
+.led-bottom-navigation__item:not(:disabled):active .led-bottom-navigation__icon {
+    color: var(--content-light, #fafafa);
+}
+
+/* Estado desabilitado - conforme design do Figma */
+.led-bottom-navigation__item:disabled {
+    background-color: var(--surface-standard, #fafafa);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.led-bottom-navigation__item:disabled .led-bottom-navigation__icon {
+    color: var(--content-disable, #7f7f7f);
+}
+
+/* Estados de foco para acessibilidade */
+.led-bottom-navigation__item:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Responsividade - conforme design do Figma */
+@media (max-width: 768px) {
+    .led-bottom-navigation {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .led-bottom-navigation__item {
+        padding: var(--padding-xs, 4px);
+    }
+
+    .led-bottom-navigation__icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .led-bottom-navigation__icon svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .led-bottom-navigation {
+        max-width: 100%;
+    }
+
+    .led-bottom-navigation__item {
+        padding: var(--padding-xs, 2px);
+    }
+
+    .led-bottom-navigation__icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .led-bottom-navigation__icon svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .led-bottom-navigation {
+        height: 64px;
+    }
+
+    .led-bottom-navigation__icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .led-bottom-navigation__icon svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Animações suaves */
+.led-bottom-navigation__item * {
+    transition: inherit;
+}
+
+/* Efeito de transição suave para mudança de estado ativo */
+.led-bottom-navigation__item {
+    transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+/* Regras específicas para diferentes números de itens */
+/* Para 4 itens - largura fixa e igual */
+.led-bottom-navigation:has(.led-bottom-navigation__item:nth-child(4):last-child) .led-bottom-navigation__item {
+    flex: 1;
+    min-width: 44px;
+}
+
+/* Para 5 itens - largura variável, mas respeitando mínimo */
+.led-bottom-navigation:has(.led-bottom-navigation__item:nth-child(5):last-child) .led-bottom-navigation__item {
+    flex: 1;
+    min-width: 44px;
+    /* Permite que a largura seja variável baseada no conteúdo */
+    width: auto;
+}
+
+/* Para 6 itens - largura variável, mas respeitando mínimo */
+.led-bottom-navigation:has(.led-bottom-navigation__item:nth-child(6):last-child) .led-bottom-navigation__item {
+    flex: 1;
+    min-width: 44px;
+    /* Permite que a largura seja variável baseada no conteúdo */
+    width: auto;
+}
+
+/* Fallback para navegadores que não suportam :has() */
+/* 4 itens */
+.led-bottom-navigation[data-item-count="4"] .led-bottom-navigation__item {
+    flex: 1;
+    min-width: 44px;
+}
+
+/* 5 itens */
+.led-bottom-navigation[data-item-count="5"] .led-bottom-navigation__item {
+    flex: 1;
+    min-width: 44px;
+    /* Permite que a largura seja variável baseada no conteúdo */
+    width: auto;
+}
+
+/* 6 itens */
+.led-bottom-navigation[data-item-count="6"] .led-bottom-navigation__item {
+    flex: 1;
+    min-width: 44px;
+    /* Permite que a largura seja variável baseada no conteúdo */
+    width: auto;
+}
+
+/* Variantes específicas removidas - agora controladas apenas pelo React */

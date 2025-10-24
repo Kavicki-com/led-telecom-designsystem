@@ -1,0 +1,160 @@
+/* Tab - Componente de tab do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=193-330&m=dev */
+
+.led-tab {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative;
+
+    /* Espaçamento */
+    padding: var(--padding-xs, 4px) var(--padding-s, 8px);
+
+    /* Bordas */
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+
+    /* Tipografia */
+    font-family: var(--family-body, 'Montserrat:Regular', sans-serif);
+    font-weight: var(--weight-regular, normal);
+    font-size: var(--size-m, 14px);
+    line-height: normal;
+    text-align: center;
+    white-space: nowrap;
+
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Posicionamento */
+    flex-shrink: 0;
+    width: 89px;
+    height: 24px;
+}
+
+/* Ajuste para tabs individuais (fora do container) */
+.led-tab:not(.led-tabs-container .led-tab) {
+    width: 89px;
+    height: 24px;
+}
+
+/* Estados da tab - conforme design do Figma */
+
+/* Estado Default - data-name="state=default" data-node-id="193:339" */
+.led-tab--default {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+}
+
+/* Estado Disable - data-name="state=disable" data-node-id="193:331" */
+.led-tab--disable {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    cursor: not-allowed;
+}
+
+/* Estado Ativo - quando a tab está selecionada */
+.led-tab--active {
+    border-bottom: 2px solid var(--content-primary, #1f2453);
+    height: 26px;
+}
+
+/* Tab ativa em qualquer posição */
+.led-tab.led-tab--active {
+    border-bottom: 2px solid var(--content-primary, #1f2453);
+    height: 26px;
+}
+
+/* Estados interativos reais (não controlados por props) */
+.led-tab:not(.led-tab--disable):hover {
+    background-color: rgba(31, 36, 83, 0.05);
+}
+
+.led-tab:not(.led-tab--disable):active {
+    background-color: rgba(31, 36, 83, 0.1);
+}
+
+/* Elementos internos da tab - conforme design do Figma */
+
+.led-tab__label {
+    font-family: var(--family-body, 'Montserrat:Regular', sans-serif);
+    font-weight: var(--weight-regular, normal);
+    font-size: var(--size-m, 14px);
+    line-height: normal;
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+/* Cores do texto baseadas no estado */
+.led-tab--default .led-tab__label {
+    color: var(--content-primary, #1f2453);
+}
+
+.led-tab--disable .led-tab__label {
+    color: var(--content-disable, #7f7f7f);
+}
+
+.led-tab--active .led-tab__label {
+    color: var(--content-primary, #1f2453);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-tab {
+        width: auto;
+        min-width: 60px;
+        padding: var(--padding-xs, 4px) var(--padding-s, 6px);
+        font-size: var(--size-sm, 12px);
+    }
+}
+
+/* Estados de foco para acessibilidade */
+.led-tab:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Animação de transição suave */
+.led-tab * {
+    transition: inherit;
+}
+
+/* Container para múltiplas tabs - conforme design do Figma */
+.led-tabs-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    position: relative;
+}
+
+.led-tabs-container .led-tab {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    height: 24px;
+    width: 89px;
+    flex-shrink: 0;
+}
+
+/* Tab ativa em qualquer posição - ESTA É A CORREÇÃO PRINCIPAL */
+.led-tabs-container .led-tab.led-tab--active {
+    border-bottom: 2px solid var(--content-primary, #1f2453) !important;
+    height: 26px !important;
+}
+
+/* Tabs não ativas - com borda inferior sutil */
+.led-tabs-container .led-tab:not(.led-tab--active) {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+}
+
+/* Tabs desabilitadas */
+.led-tabs-container .led-tab.led-tab--disable {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    height: 24px;
+}

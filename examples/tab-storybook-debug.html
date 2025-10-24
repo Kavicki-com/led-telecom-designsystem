@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Tab - Storybook</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .led-tabs-container {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .led-tab {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            position: relative;
+            padding: 4px 8px;
+            border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            font-family: var(--family-body, 'Montserrat:Regular', sans-serif);
+            font-weight: var(--weight-regular, normal);
+            font-size: var(--size-m, 14px);
+            line-height: normal;
+            text-align: center;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            flex-shrink: 0;
+            width: 89px;
+            height: 24px;
+            color: var(--content-primary, #1f2453);
+        }
+
+        .led-tab:hover {
+            background-color: rgba(31, 36, 83, 0.05);
+        }
+
+        /* Tab ativa - ESTA É A CORREÇÃO PRINCIPAL */
+        .led-tab.led-tab--active {
+            border-bottom: 2px solid var(--content-primary, #1f2453) !important;
+            height: 26px !important;
+        }
+
+        .led-tab:not(.led-tab--active) {
+            border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+        }
+
+        .tab-content {
+            padding: 20px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+
+        .debug {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .status {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 20px;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Debug Tab - Storybook</h1>
+        <p>Este exemplo simula exatamente o que está no Storybook:</p>
+
+        <div class="led-tabs-container">
+            <div class="led-tab led-tab--active" onclick="setActiveTab(this, 'fatura')">Fatura</div>
+            <div class="led-tab" onclick="setActiveTab(this, 'relatorios')">Relatórios</div>
+            <div class="led-tab" onclick="setActiveTab(this, 'configuracoes')">Configurações</div>
+        </div>
+
+        <div class="tab-content">
+            <p id="tab-content">Conteúdo da tab: <strong>Fatura</strong></p>
+        </div>
+
+        <div class="status" id="status">
+            ✅ Tab ativa: Fatura
+        </div>
+
+        <div class="debug" id="debug">
+            Debug: Tab ativa = fatura<br>
+            Classes: led-tab led-tab--active
+        </div>
+    </div>
+
+    <script>
+        function setActiveTab(clickedTab, tabId) {
+            console.log('🔄 Mudando para tab:', tabId);
+
+            // Remove active de todas as tabs do mesmo container
+            const container = clickedTab.parentElement;
+            container.querySelectorAll('.led-tab').forEach(tab => {
+                tab.classList.remove('led-tab--active');
+                console.log('Removendo led-tab--active de:', tab.textContent);
+            });
+
+            // Adiciona active na tab clicada
+            clickedTab.classList.add('led-tab--active');
+            console.log('Adicionando led-tab--active em:', clickedTab.textContent);
+
+            // Atualiza o conteúdo
+            const contentElement = document.getElementById('tab-content');
+            const statusElement = document.getElementById('status');
+            const debugElement = document.getElementById('debug');
+
+            if (contentElement) {
+                const tabNames = {
+                    'fatura': 'Fatura',
+                    'relatorios': 'Relatórios',
+                    'configuracoes': 'Configurações'
+                };
+                contentElement.innerHTML = `Conteúdo da tab: <strong>${tabNames[tabId] || tabId}</strong>`;
+            }
+
+            if (statusElement) {
+                statusElement.innerHTML = `✅ Tab ativa: ${tabNames[tabId] || tabId}`;
+            }
+
+            if (debugElement) {
+                debugElement.innerHTML = `Debug: Tab ativa = ${tabId}<br>Classes: led-tab led-tab--active`;
+            }
+
+            console.log('✅ Tab mudou para:', tabId);
+        }
+    </script>
+</body>
+
+</html>

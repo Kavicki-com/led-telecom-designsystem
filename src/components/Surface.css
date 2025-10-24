@@ -1,0 +1,389 @@
+/* Surface - Componente versátil para cards e superfícies do LED Telecom */
+/* Baseado nos tokens de design LED Telecom */
+
+.led-surface {
+    /* Layout base */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+
+    /* Padding e gap dinâmicos */
+    padding: var(--led-surface-padding);
+    gap: var(--led-surface-gap);
+
+    /* Bordas dinâmicas */
+    border: var(--led-surface-border-size) solid transparent;
+    border-radius: var(--led-surface-border-radius);
+
+    /* Transições suaves */
+    transition: all 0.2s ease-in-out;
+
+    /* Tipografia base */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--content-primary, #1f2453);
+
+    /* Reset de estilos padrão */
+    background: none;
+    outline: none;
+    text-decoration: none;
+}
+
+/* Variantes de cor - baseadas nos tokens de surface */
+
+/* Variante Standard */
+.led-surface--standard {
+    background-color: var(--surface-standard, #fafafa);
+    color: var(--content-primary, #1f2453);
+}
+
+/* Variante Primary */
+.led-surface--primary {
+    background-color: var(--surface-primary, #1f2453);
+    color: var(--content-light, #fafafa);
+}
+
+/* Variante Secondary */
+.led-surface--secondary {
+    background-color: var(--surface-secondary, #ffaa00);
+    color: var(--content-primary, #1f2453);
+}
+
+/* Variante Grey */
+.led-surface--grey {
+    background-color: var(--surface-grey, #dadada);
+    color: var(--content-primary, #1f2453);
+}
+
+/* Variante Error */
+.led-surface--error {
+    background-color: var(--surface-error, #e5102e);
+    color: var(--content-light, #fafafa);
+}
+
+/* Variante Success */
+.led-surface--success {
+    background-color: var(--surface-sucess, #2a613d);
+    color: var(--content-light, #fafafa);
+}
+
+/* Variante Warning */
+.led-surface--warning {
+    background-color: var(--surface-warning, #e69900);
+    color: var(--content-primary, #1f2453);
+}
+
+/* Variante Info */
+.led-surface--info {
+    background-color: var(--surface-info, #565fcc);
+    color: var(--content-light, #fafafa);
+}
+
+/* Tamanhos do surface */
+
+/* Tamanho Small */
+.led-surface--small {
+    padding: var(--padding-s, 8px);
+    gap: var(--gap-s, 8px);
+    font-size: 12px;
+}
+
+/* Tamanho Medium (padrão) */
+.led-surface--medium {
+    padding: var(--padding-m, 16px);
+    gap: var(--gap-m, 16px);
+    font-size: 14px;
+}
+
+/* Tamanho Large */
+.led-surface--large {
+    padding: var(--padding-l, 24px);
+    gap: var(--gap-l, 24px);
+    font-size: 16px;
+}
+
+/* Tamanho XLarge */
+.led-surface--xlarge {
+    padding: var(--padding-xl, 32px);
+    gap: var(--gap-xl, 28px);
+    font-size: 18px;
+}
+
+/* Elevações do surface */
+
+/* Sem elevação - sem sombra */
+.led-surface--elevation-none {
+    box-shadow: none !important;
+}
+
+/* Elevação baixa - cor mais escura */
+.led-surface--elevation-low {
+    box-shadow: 0px 2px 4px 0px rgba(29, 29, 29, 0.20);
+}
+
+/* Elevação média */
+.led-surface--elevation-medium {
+    box-shadow: 0px 4px 16px 0px rgba(29, 29, 29, 0.16);
+}
+
+/* Elevação alta */
+.led-surface--elevation-high {
+    box-shadow: 0px 8px 32px 0px rgba(29, 29, 29, 0.24);
+}
+
+/* Estados do surface */
+
+/* Surface clicável */
+.led-surface--clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.led-surface--clickable:hover:not(.led-surface--disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 20px 0px rgba(29, 29, 29, 0.20);
+}
+
+.led-surface--clickable:active:not(.led-surface--disabled) {
+    transform: translateY(0);
+    box-shadow: 0px 2px 8px 0px rgba(29, 29, 29, 0.12);
+}
+
+/* Surface desabilitado */
+.led-surface--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Surface com loading */
+.led-surface--loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.led-surface--loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1;
+}
+
+/* Surface com borda */
+.led-surface--bordered {
+    border-color: var(--content-primary, #1f2453);
+}
+
+/* Surface responsivo */
+.led-surface--responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Surface como card */
+.led-surface--card {
+    background: white;
+    border: 1px solid var(--surface-grey, #dadada);
+}
+
+/* Surface com sombra - apenas se não tiver elevação específica */
+.led-surface--shadow:not(.led-surface--elevation-none):not(.led-surface--elevation-low):not(.led-surface--elevation-medium):not(.led-surface--elevation-high) {
+    box-shadow: 0px 4px 16px 0px rgba(29, 29, 29, 0.08);
+}
+
+/* Surface com hover effect */
+.led-surface--hover:hover:not(.led-surface--disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0px 6px 20px 0px rgba(29, 29, 29, 0.15);
+}
+
+/* Elementos internos do surface */
+
+/* Header do card */
+.led-surface__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs, 4px);
+    margin-bottom: var(--gap-m, 16px);
+}
+
+/* Título do card */
+.led-surface__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.3;
+    margin: 0;
+    color: inherit;
+}
+
+/* Subtítulo do card */
+.led-surface__subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.8;
+    color: inherit;
+}
+
+/* Conteúdo do surface */
+.led-surface__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+}
+
+/* Ações do card */
+.led-surface__actions {
+    display: flex;
+    gap: var(--gap-s, 8px);
+    margin-top: var(--gap-m, 16px);
+    padding-top: var(--gap-m, 16px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    justify-content: flex-end;
+}
+
+/* Estado de loading */
+.led-surface__loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-s, 8px);
+    z-index: 2;
+}
+
+/* Spinner de loading */
+.led-surface__spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--content-primary, #1f2453);
+    border-radius: 50%;
+    animation: led-surface-spin 1s linear infinite;
+}
+
+/* Texto de loading */
+.led-surface__loading-text {
+    font-size: 12px;
+    color: var(--content-primary, #1f2453);
+    opacity: 0.8;
+}
+
+/* Animação do spinner */
+@keyframes led-surface-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-surface--responsive {
+        padding: var(--padding-sm, 12px);
+        gap: var(--gap-sm, 12px);
+    }
+
+    .led-surface--small {
+        padding: var(--padding-xs, 4px);
+        gap: var(--gap-xs, 4px);
+        font-size: 11px;
+    }
+
+    .led-surface--large {
+        padding: var(--padding-m, 16px);
+        gap: var(--gap-m, 16px);
+        font-size: 14px;
+    }
+
+    .led-surface--xlarge {
+        padding: var(--padding-l, 24px);
+        gap: var(--gap-l, 24px);
+        font-size: 16px;
+    }
+
+    .led-surface__title {
+        font-size: 16px;
+    }
+
+    .led-surface__subtitle {
+        font-size: 12px;
+    }
+
+    .led-surface__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .led-surface--responsive {
+        padding: var(--padding-s, 8px);
+        gap: var(--gap-s, 8px);
+    }
+
+    .led-surface__title {
+        font-size: 14px;
+    }
+
+    .led-surface__subtitle {
+        font-size: 11px;
+    }
+}
+
+/* Estados de foco para acessibilidade */
+.led-surface--clickable:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+}
+
+/* Animações de transição suave */
+.led-surface * {
+    transition: inherit;
+}
+
+/* Variantes especiais para diferentes contextos */
+
+/* Surface para modais */
+.led-surface--modal {
+    background: white;
+    border-radius: var(--border-radius-l, 16px);
+    box-shadow: 0px 16px 64px 0px rgba(29, 29, 29, 0.32);
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: auto;
+}
+
+/* Surface para tooltips */
+.led-surface--tooltip {
+    background: var(--surface-primary, #1f2453);
+    color: var(--content-light, #fafafa);
+    border-radius: var(--border-radius-s, 4px);
+    padding: var(--padding-s, 8px);
+    font-size: 12px;
+    box-shadow: 0px 4px 12px 0px rgba(29, 29, 29, 0.20);
+}
+
+/* Surface para notificações */
+.led-surface--notification {
+    border-left: 4px solid var(--surface-secondary, #ffaa00);
+    background: var(--surface-secondary-light, #ffefc2);
+    color: var(--content-primary, #1f2453);
+}

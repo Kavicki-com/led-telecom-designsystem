@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Telecom - Surface Component</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--surface-standard, #fafafa);
+            color: var(--content-primary, #1f2453);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: var(--content-primary, #1f2453);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--content-primary, #1f2453);
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        .example-section {
+            margin-bottom: 60px;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius-l, 16px);
+            box-shadow: 0px 4px 16px 0px rgba(29, 29, 29, 0.08);
+        }
+
+        .example-section h2 {
+            color: var(--content-primary, #1f2453);
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--surface-secondary, #ffaa00);
+            padding-bottom: 10px;
+        }
+
+        .example-section p {
+            color: var(--content-primary, #1f2453);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .surface-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .surface-card {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease-in-out;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--content-primary, #1f2453);
+            background: none;
+            outline: none;
+            text-decoration: none;
+        }
+
+        /* Variantes de cor */
+        .surface-standard {
+            background-color: var(--surface-standard, #fafafa);
+            color: var(--content-primary, #1f2453);
+        }
+
+        .surface-primary {
+            background-color: var(--surface-primary, #1f2453);
+            color: var(--content-light, #fafafa);
+        }
+
+        .surface-secondary {
+            background-color: var(--surface-secondary, #ffaa00);
+            color: var(--content-primary, #1f2453);
+        }
+
+        .surface-grey {
+            background-color: var(--surface-grey, #dadada);
+            color: var(--content-primary, #1f2453);
+        }
+
+        .surface-error {
+            background-color: var(--surface-error, #e5102e);
+            color: var(--content-light, #fafafa);
+        }
+
+        .surface-success {
+            background-color: var(--surface-sucess, #2a613d);
+            color: var(--content-light, #fafafa);
+        }
+
+        .surface-warning {
+            background-color: var(--surface-warning, #e69900);
+            color: var(--content-primary, #1f2453);
+        }
+
+        .surface-info {
+            background-color: var(--surface-info, #565fcc);
+            color: var(--content-light, #fafafa);
+        }
+
+        /* Tamanhos */
+        .surface-small {
+            padding: var(--padding-s, 8px);
+            gap: var(--gap-s, 8px);
+            font-size: 12px;
+        }
+
+        .surface-medium {
+            padding: var(--padding-m, 16px);
+            gap: var(--gap-m, 16px);
+            font-size: 14px;
+        }
+
+        .surface-large {
+            padding: var(--padding-l, 24px);
+            gap: var(--gap-l, 24px);
+            font-size: 16px;
+        }
+
+        .surface-xlarge {
+            padding: var(--padding-xl, 32px);
+            gap: var(--gap-xl, 28px);
+            font-size: 18px;
+        }
+
+        /* Elevações */
+        .elevation-none {
+            box-shadow: none;
+        }
+
+        .elevation-low {
+            box-shadow: 0px 2px 4px 0px rgba(29, 29, 29, 0.08);
+        }
+
+        .elevation-medium {
+            box-shadow: 0px 4px 16px 0px rgba(29, 29, 29, 0.16);
+        }
+
+        .elevation-high {
+            box-shadow: 0px 8px 32px 0px rgba(29, 29, 29, 0.24);
+        }
+
+        /* Estados */
+        .surface-clickable {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .surface-clickable:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 20px 0px rgba(29, 29, 29, 0.20);
+        }
+
+        .surface-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .surface-bordered {
+            border: var(--border-size-m, 2px) solid var(--content-primary, #1f2453);
+        }
+
+        .surface-card-style {
+            background: white;
+            border: 1px solid var(--surface-grey, #dadada);
+        }
+
+        /* Elementos internos */
+        .surface-header {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-xs, 4px);
+            margin-bottom: var(--gap-m, 16px);
+        }
+
+        .surface-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.3;
+            margin: 0;
+            color: inherit;
+        }
+
+        .surface-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.4;
+            margin: 0;
+            opacity: 0.8;
+            color: inherit;
+        }
+
+        .surface-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: inherit;
+        }
+
+        .surface-actions {
+            display: flex;
+            gap: var(--gap-s, 8px);
+            margin-top: var(--gap-m, 16px);
+            padding-top: var(--gap-m, 16px);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            justify-content: flex-end;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .demo-button {
+            padding: 8px 16px;
+            border: 2px solid var(--content-primary, #1f2453);
+            border-radius: var(--border-radius-m, 8px);
+            background: transparent;
+            color: var(--content-primary, #1f2453);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .demo-button:hover {
+            background: var(--surface-secondary, #ffaa00);
+            border-color: var(--surface-secondary, #ffaa00);
+        }
+
+        .demo-button.active {
+            background: var(--surface-secondary, #ffaa00);
+            border-color: var(--surface-secondary, #ffaa00);
+        }
+
+        .demo-info {
+            background: var(--surface-secondary-light, #ffefc2);
+            padding: 15px;
+            border-radius: var(--border-radius-m, 8px);
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .code-example {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius-m, 8px);
+            padding: 20px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            background: var(--surface-secondary-light, #ffefc2);
+            padding: 20px;
+            border-radius: var(--border-radius-m, 8px);
+            border-left: 4px solid var(--surface-secondary, #ffaa00);
+        }
+
+        .feature h4 {
+            color: var(--content-primary, #1f2453);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: var(--content-primary, #1f2453);
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .example-section {
+                padding: 20px;
+            }
+
+            .demo-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .surface-demo {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>LED Telecom - Surface Component</h1>
+            <p>Componente versátil para criar cards e superfícies seguindo o design system</p>
+        </div>
+
+        <div class="example-section">
+            <h2>Variantes de Cor</h2>
+            <p>O componente Surface suporta múltiplas variantes de cor baseadas nos tokens de design:</p>
+
+            <div class="surface-demo">
+                <div class="surface-card surface-standard surface-medium elevation-medium surface-card-style">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Standard</h3>
+                        <p class="surface-subtitle">Surface padrão</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Este é um surface padrão com fundo branco/cinza claro.</p>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-primary surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Primary</h3>
+                        <p class="surface-subtitle">Surface primário</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Surface com cor primária do design system.</p>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-secondary surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Secondary</h3>
+                        <p class="surface-subtitle">Surface secundário</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Surface com cor secundária (laranja).</p>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-grey surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Grey</h3>
+                        <p class="surface-subtitle">Surface cinza</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Surface com fundo cinza neutro.</p>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-error surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Error</h3>
+                        <p class="surface-subtitle">Surface de erro</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Surface para indicar estados de erro.</p>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-success surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Success</h3>
+                        <p class="surface-subtitle">Surface de sucesso</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Surface para indicar operações bem-sucedidas.</p>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-warning surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Warning</h3>
+                        <p class="surface-subtitle">Surface de aviso</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Surface para alertas e avisos.</p>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-info surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Info</h3>
+                        <p class="surface-subtitle">Surface informativo</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Surface para informações gerais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>Tamanhos e Elevações</h2>
+            <p>Diferentes tamanhos e níveis de elevação disponíveis:</p>
+
+            <div class="surface-demo">
+                <div class="surface-card surface-standard surface-small elevation-low surface-card-style">
+                    <h3 class="surface-title">Small</h3>
+                    <p>Surface pequeno com elevação baixa</p>
+                </div>
+
+                <div class="surface-card surface-standard surface-medium elevation-medium surface-card-style">
+                    <h3 class="surface-title">Medium</h3>
+                    <p>Surface médio com elevação média</p>
+                </div>
+
+                <div class="surface-card surface-standard surface-large elevation-high surface-card-style">
+                    <h3 class="surface-title">Large</h3>
+                    <p>Surface grande com elevação alta</p>
+                </div>
+
+                <div class="surface-card surface-standard surface-xlarge elevation-high surface-card-style">
+                    <h3 class="surface-title">XLarge</h3>
+                    <p>Surface extra grande com elevação alta</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>Estados Interativos</h2>
+            <p>Teste os diferentes estados do Surface:</p>
+
+            <div class="demo-controls">
+                <button class="demo-button active" onclick="setSurfaceState('normal')">Normal</button>
+                <button class="demo-button" onclick="setSurfaceState('clickable')">Clicável</button>
+                <button class="demo-button" onclick="setSurfaceState('disabled')">Desabilitado</button>
+                <button class="demo-button" onclick="setSurfaceState('bordered')">Com Borda</button>
+            </div>
+
+            <div id="surface-container">
+                <!-- Surface será renderizado aqui via JavaScript -->
+            </div>
+
+            <div class="demo-info">
+                <strong>Estado Atual:</strong> <span id="current-state">normal</span>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>Cards Completos</h2>
+            <p>Exemplos de cards com todas as funcionalidades:</p>
+
+            <div class="surface-demo">
+                <div class="surface-card surface-standard surface-medium elevation-medium surface-card-style">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Card de Produto</h3>
+                        <p class="surface-subtitle">R$ 299,90</p>
+                    </div>
+                    <div class="surface-content">
+                        <div
+                            style="width: 100%; height: 120px; background: linear-gradient(45deg, #ffaa00, #ffefc2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #1f2453; font-weight: bold; margin-bottom: 16px;">
+                            Imagem do Produto
+                        </div>
+                        <p>Descrição do produto com detalhes importantes.</p>
+                    </div>
+                    <div class="surface-actions">
+                        <button
+                            style="padding: 8px 16px; border: 1px solid #1f2453; border-radius: 4px; background: transparent; cursor: pointer;">Ver
+                            Detalhes</button>
+                        <button
+                            style="padding: 8px 16px; border: none; border-radius: 4px; background: #1f2453; color: white; cursor: pointer;">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-primary surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Estatísticas</h3>
+                        <p class="surface-subtitle">Dashboard</p>
+                    </div>
+                    <div class="surface-content">
+                        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+                            <div style="flex: 1; text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold;">1,234</div>
+                                <div style="font-size: 12px; opacity: 0.8;">Usuários</div>
+                            </div>
+                            <div style="flex: 1; text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold;">98%</div>
+                                <div style="font-size: 12px; opacity: 0.8;">Uptime</div>
+                            </div>
+                        </div>
+                        <p>Métricas atualizadas em tempo real</p>
+                    </div>
+                </div>
+
+                <div class="surface-card surface-success surface-medium elevation-medium">
+                    <div class="surface-header">
+                        <h3 class="surface-title">Sucesso!</h3>
+                        <p class="surface-subtitle">Operação concluída</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>✅ Sua operação foi realizada com sucesso. Todos os dados foram salvos corretamente.</p>
+                    </div>
+                    <div class="surface-actions">
+                        <button
+                            style="padding: 8px 16px; border: none; border-radius: 4px; background: rgba(255,255,255,0.2); color: white; cursor: pointer;">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>Características do Componente</h2>
+            <div class="features">
+                <div class="feature">
+                    <h4>🎨 Design System</h4>
+                    <p>Seguindo rigorosamente os tokens de design LED Telecom com cores, espaçamentos e tipografia
+                        consistentes.</p>
+                </div>
+                <div class="feature">
+                    <h4>📱 Responsivo</h4>
+                    <p>Adapta-se automaticamente a diferentes tamanhos de tela mantendo a usabilidade e legibilidade.
+                    </p>
+                </div>
+                <div class="feature">
+                    <h4>♿ Acessível</h4>
+                    <p>Suporte completo a navegação por teclado, leitores de tela e estados de foco.</p>
+                </div>
+                <div class="feature">
+                    <h4>⚡ Interativo</h4>
+                    <p>Estados de hover, focus, active e loading com transições suaves e feedback visual.</p>
+                </div>
+                <div class="feature">
+                    <h4>🔧 Versátil</h4>
+                    <p>Múltiplas variantes, tamanhos, elevações e estados para diferentes casos de uso.</p>
+                </div>
+                <div class="feature">
+                    <h4>🎯 TypeScript</h4>
+                    <p>Tipagem completa para melhor experiência de desenvolvimento e detecção de erros.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>Exemplo de Código</h2>
+            <p>Como usar o componente Surface em seu projeto:</p>
+
+            <div class="code-example">
+                <pre><code>import { Surface } from '@led-telecom/design-tokens';
+
+// Surface básico
+&lt;Surface variant="standard" size="medium" elevation="medium"&gt;
+    Conteúdo do surface
+&lt;/Surface&gt;
+
+// Surface como card
+&lt;Surface 
+    asCard={true}
+    cardTitle="Título do Card"
+    cardSubtitle="Subtítulo"
+    variant="primary"
+    size="large"
+    elevation="high"
+    shadow={true}
+    hover={true}
+&gt;
+    Conteúdo do card
+&lt;/Surface&gt;
+
+// Surface clicável
+&lt;Surface 
+    clickable={true}
+    hover={true}
+    onClick={() => console.log('Clicado!')}
+    variant="secondary"
+&gt;
+    Clique em mim!
+&lt;/Surface&gt;
+
+// Surface com estados
+&lt;Surface 
+    loading={true}
+    disabled={false}
+    bordered={true}
+    variant="info"
+&gt;
+    Surface com estados especiais
+&lt;/Surface&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentState = 'normal';
+
+        function setSurfaceState(state) {
+            currentState = state;
+            updateDemoButtons();
+            renderSurface();
+        }
+
+        function updateDemoButtons() {
+            document.querySelectorAll('.demo-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            document.getElementById('current-state').textContent = currentState;
+        }
+
+        function renderSurface() {
+            const container = document.getElementById('surface-container');
+
+            let surfaceClasses = 'surface-card surface-standard surface-medium elevation-medium surface-card-style';
+            let surfaceContent = '';
+
+            if (currentState === 'clickable') {
+                surfaceClasses += ' surface-clickable';
+                surfaceContent = `
+                    <div class="surface-header">
+                        <h3 class="surface-title">Surface Clicável</h3>
+                        <p class="surface-subtitle">Clique para interagir</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Este surface é clicável e tem efeito hover. Clique para testar!</p>
+                    </div>
+                `;
+            } else if (currentState === 'disabled') {
+                surfaceClasses += ' surface-disabled';
+                surfaceContent = `
+                    <div class="surface-header">
+                        <h3 class="surface-title">Surface Desabilitado</h3>
+                        <p class="surface-subtitle">Não interativo</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Este surface está desabilitado e não pode ser interagido.</p>
+                    </div>
+                `;
+            } else if (currentState === 'bordered') {
+                surfaceClasses += ' surface-bordered';
+                surfaceContent = `
+                    <div class="surface-header">
+                        <h3 class="surface-title">Surface com Borda</h3>
+                        <p class="surface-subtitle">Destaque visual</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Este surface tem uma borda destacada para maior visibilidade.</p>
+                    </div>
+                `;
+            } else {
+                surfaceContent = `
+                    <div class="surface-header">
+                        <h3 class="surface-title">Surface Normal</h3>
+                        <p class="surface-subtitle">Estado padrão</p>
+                    </div>
+                    <div class="surface-content">
+                        <p>Este é um surface no estado normal, sem interações especiais.</p>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = `
+                <div class="${surfaceClasses}" onclick="${currentState === 'clickable' ? 'alert(\'Surface clicado!\')' : ''}">
+                    ${surfaceContent}
+                </div>
+            `;
+        }
+
+        // Inicializar a demonstração
+        document.addEventListener('DOMContentLoaded', function () {
+            renderSurface();
+        });
+    </script>
+</body>
+
+</html>

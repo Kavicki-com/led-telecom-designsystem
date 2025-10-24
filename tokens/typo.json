@@ -1,0 +1,22 @@
+{
+  "family": {
+    "title": "Raleway",
+    "body": "Montserrat"
+  },
+  "weight": {
+    "light": "Light",
+    "medium": "Medium",
+    "regular": "Regular",
+    "bold": "Bold"
+  },
+  "size": {
+    "s": "8",
+    "sm": "12",
+    "ms": "16",
+    "ml": "20",
+    "l": "24",
+    "xl": "28",
+    "2xl": "32",
+    "m": "14"
+  }
+}

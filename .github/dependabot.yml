@@ -1,0 +1,51 @@
+version: 2
+updates:
+  # Habilitar atualizações de dependências do npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Sao_Paulo"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "led-telecom-team"
+    assignees:
+      - "led-telecom-team"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "javascript"
+    ignore:
+      # Ignorar atualizações de versões major
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    # Permitir atualizações automáticas para versões patch
+    allow:
+      - dependency-type: "direct"
+        update-type: "version-update:semver-patch"
+      - dependency-type: "indirect"
+        update-type: "version-update:semver-patch"
+    # Agrupar atualizações relacionadas
+    groups:
+      development-dependencies:
+        patterns:
+          - "@types/*"
+          - "eslint*"
+          - "jest*"
+          - "ts-jest"
+          - "typescript"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
+      build-tools:
+        patterns:
+          - "rimraf"
+          - "typescript"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"

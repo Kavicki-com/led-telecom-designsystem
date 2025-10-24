@@ -1,0 +1,114 @@
+/* Breadcrumb - Componente de breadcrumb do LED Telecom */
+/* Baseado no design do Figma: https://www.figma.com/design/khpDUvOTAPMlWap9QKba2q/Library-led-telecon?node-id=191-231&m=dev */
+
+.led-breadcrumb {
+    /* Layout - conforme design do Figma */
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs, 4px);
+    box-sizing: border-box;
+
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* Posicionamento */
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Estados do breadcrumb - conforme design do Figma */
+
+/* Estado Default - data-name="Property 1=default" data-node-id="191:230" */
+.led-breadcrumb--default {
+    /* Cores e estilos padrão */
+}
+
+/* Estado Disable - data-name="Property 1=disable" data-node-id="191:232" */
+.led-breadcrumb--disable {
+    cursor: not-allowed;
+}
+
+/* Elementos internos do breadcrumb - conforme design do Figma */
+
+.led-breadcrumb__label {
+    /* Tipografia - conforme design do Figma */
+    font-family: var(--family-body, 'Montserrat:Light', sans-serif);
+    font-size: var(--size-m, 14px);
+    font-weight: 300;
+    /* Light */
+    line-height: normal;
+    font-style: normal;
+    text-align: left;
+    white-space: nowrap;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Cores do label baseadas no estado - conforme design do Figma */
+.led-breadcrumb--default .led-breadcrumb__label {
+    color: var(--content-primary, #1f2453);
+}
+
+.led-breadcrumb--disable .led-breadcrumb__label {
+    color: var(--content-disable, #7f7f7f);
+}
+
+.led-breadcrumb__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+.led-breadcrumb__arrow-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    max-width: none;
+}
+
+/* Cores do ícone baseadas no estado - conforme design do Figma */
+.led-breadcrumb--default .led-breadcrumb__arrow-icon {
+    color: var(--content-primary, #1f2453);
+}
+
+.led-breadcrumb--disable .led-breadcrumb__arrow-icon {
+    color: var(--content-disable, #7f7f7f);
+}
+
+/* Estados interativos reais (não controlados por props) */
+.led-breadcrumb:not(.led-breadcrumb--disable):hover .led-breadcrumb__label {
+    color: var(--content-primary-light, #9da5e8);
+}
+
+.led-breadcrumb:not(.led-breadcrumb--disable):hover .led-breadcrumb__arrow-icon {
+    color: var(--content-primary-light, #9da5e8);
+}
+
+/* Estados de foco para acessibilidade */
+.led-breadcrumb:focus-visible {
+    outline: 2px solid var(--content-primary, #1f2453);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-s, 4px);
+}
+
+/* Animação de transição suave */
+.led-breadcrumb * {
+    transition: inherit;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .led-breadcrumb__label {
+        font-size: var(--size-sm, 12px);
+    }
+
+    .led-breadcrumb__arrow {
+        width: 20px;
+        height: 20px;
+    }
+}

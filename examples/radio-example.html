@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Telecom - Radio Component Example</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #1f1f1f;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1f2453;
+            margin-bottom: 30px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        h2 {
+            color: #1f2453;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .example-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #dadada;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .radio-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .code-block {
+            background: #1f1f1f;
+            color: #fafafa;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>LED Telecom - Componente Radio</h1>
+
+        <p>Este exemplo demonstra o uso do componente Radio do LED Telecom Design System.</p>
+
+        <div class="example-section">
+            <h2>1. Radio Básico</h2>
+            <p>Exemplo de um radio button simples:</p>
+
+            <div class="radio-group">
+                <div class="led-radio led-radio--off" data-name="state=off" data-node-id="118:1023">
+                    <div class="led-radio__container">
+                        <input type="radio" id="radio1" name="basic" class="led-radio__input">
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle"></div>
+                        </div>
+                    </div>
+                    <label for="radio1" class="led-radio__label">Opção 1</label>
+                </div>
+
+                <div class="led-radio led-radio--on" data-name="state=on" data-node-id="118:1022">
+                    <div class="led-radio__container">
+                        <input type="radio" id="radio2" name="basic" class="led-radio__input" checked>
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle">
+                                <div class="led-radio__dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="radio2" class="led-radio__label">Opção 2 (Selecionada)</label>
+                </div>
+            </div>
+
+            <div class="code-block">
+                &lt;div class="led-radio led-radio--on"&gt;
+                &lt;div class="led-radio__container"&gt;
+                &lt;input type="radio" id="radio2" name="basic" class="led-radio__input" checked&gt;
+                &lt;div class="led-radio__indicator"&gt;
+                &lt;div class="led-radio__circle"&gt;
+                &lt;div class="led-radio__dot"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;label for="radio2" class="led-radio__label"&gt;Opção 2 (Selecionada)&lt;/label&gt;
+                &lt;/div&gt;
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>2. Grupo de Radio Buttons</h2>
+            <p>Exemplo de um grupo de radio buttons para seleção única:</p>
+
+            <div class="radio-group">
+                <div class="led-radio led-radio--on" data-name="state=on" data-node-id="118:1022">
+                    <div class="led-radio__container">
+                        <input type="radio" id="group1" name="group" class="led-radio__input" checked>
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle">
+                                <div class="led-radio__dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="group1" class="led-radio__label">Pessoa Física</label>
+                </div>
+
+                <div class="led-radio led-radio--off" data-name="state=off" data-node-id="118:1023">
+                    <div class="led-radio__container">
+                        <input type="radio" id="group2" name="group" class="led-radio__input">
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle"></div>
+                        </div>
+                    </div>
+                    <label for="group2" class="led-radio__label">Pessoa Jurídica</label>
+                </div>
+
+                <div class="led-radio led-radio--off" data-name="state=off" data-node-id="118:1023">
+                    <div class="led-radio__container">
+                        <input type="radio" id="group3" name="group" class="led-radio__input">
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle"></div>
+                        </div>
+                    </div>
+                    <label for="group3" class="led-radio__label">Outro</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>3. Estados Desabilitados</h2>
+            <p>Exemplo de radio buttons em estado desabilitado:</p>
+
+            <div class="radio-group">
+                <div class="led-radio led-radio--off led-radio--disabled" data-name="state=off" data-node-id="118:1023">
+                    <div class="led-radio__container">
+                        <input type="radio" id="disabled1" name="disabled" class="led-radio__input" disabled>
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle"></div>
+                        </div>
+                    </div>
+                    <label for="disabled1" class="led-radio__label">Opção Desabilitada</label>
+                </div>
+
+                <div class="led-radio led-radio--on led-radio--disabled" data-name="state=on" data-node-id="118:1022">
+                    <div class="led-radio__container">
+                        <input type="radio" id="disabled2" name="disabled" class="led-radio__input" checked disabled>
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle">
+                                <div class="led-radio__dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="disabled2" class="led-radio__label">Opção Desabilitada e Selecionada</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>4. Layout Horizontal</h2>
+            <p>Exemplo de radio buttons em layout horizontal:</p>
+
+            <div class="radio-row">
+                <div class="led-radio led-radio--on" data-name="state=on" data-node-id="118:1022">
+                    <div class="led-radio__container">
+                        <input type="radio" id="horizontal1" name="horizontal" class="led-radio__input" checked>
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle">
+                                <div class="led-radio__dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="horizontal1" class="led-radio__label">Sim</label>
+                </div>
+
+                <div class="led-radio led-radio--off" data-name="state=off" data-node-id="118:1023">
+                    <div class="led-radio__container">
+                        <input type="radio" id="horizontal2" name="horizontal" class="led-radio__input">
+                        <div class="led-radio__indicator">
+                            <div class="led-radio__circle"></div>
+                        </div>
+                    </div>
+                    <label for="horizontal2" class="led-radio__label">Não</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>5. Uso com React/TypeScript</h2>
+            <p>Exemplo de como usar o componente em React:</p>
+
+            <div class="code-block">
+                import { Radio } from '@led-telecom/design-system';
+
+                function MyForm() {
+                const [selectedOption, setSelectedOption] = useState('option1');
+
+                return (
+                &lt;div&gt;
+                &lt;Radio
+                label="Opção 1"
+                state={selectedOption === 'option1' ? 'on' : 'off'}
+                name="myGroup"
+                value="option1"
+                onChange={(checked) => checked && setSelectedOption('option1')}
+                /&gt;
+                &lt;Radio
+                label="Opção 2"
+                state={selectedOption === 'option2' ? 'on' : 'off'}
+                name="myGroup"
+                value="option2"
+                onChange={(checked) => checked && setSelectedOption('option2')}
+                /&gt;
+                &lt;/div&gt;
+                );
+                }
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h2>6. Características do Componente</h2>
+            <ul>
+                <li><strong>Acessibilidade:</strong> Suporte completo a screen readers e navegação por teclado</li>
+                <li><strong>Design System:</strong> Segue os tokens de design do LED Telecom</li>
+                <li><strong>Responsivo:</strong> Adapta-se a diferentes tamanhos de tela</li>
+                <li><strong>Estados:</strong> Suporte a estados on/off, hover, focus e disabled</li>
+                <li><strong>Customizável:</strong> Permite classes CSS adicionais</li>
+                <li><strong>TypeScript:</strong> Tipagem completa para melhor experiência de desenvolvimento</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

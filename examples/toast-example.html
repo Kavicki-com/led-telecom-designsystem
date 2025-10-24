@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Example - LED Telecom</title>
+    <link rel="stylesheet" href="../css/tokens.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1f2453;
+            margin-bottom: 30px;
+        }
+
+        .toast-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .example-section {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .example-section h3 {
+            margin-top: 0;
+            color: #1f2453;
+        }
+
+        .toast-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        button {
+            background: #1f2453;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #2a2f6b;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Componente Toast - LED Telecom</h1>
+        <p>Exemplos de uso do componente Toast baseado no design do Figma.</p>
+
+        <div class="example-section">
+            <h3>Estados do Toast</h3>
+            <div class="toast-container">
+                <!-- Toast de Erro (Default) -->
+                <div class="led-toast led-toast--default" role="alert" aria-live="polite">
+                    <div class="led-toast__icon led-toast__icon--error">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="led-toast__content">
+                        <p class="led-toast__title">Error!</p>
+                        <p class="led-toast__message">Que pena! Campo incorreto :(</p>
+                    </div>
+                    <button class="led-toast__close" aria-label="Fechar notificação">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Toast de Sucesso -->
+                <div class="led-toast led-toast--success" role="alert" aria-live="polite">
+                    <div class="led-toast__icon led-toast__icon--success">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M13.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.793l6.646-6.647a.5.5 0 0 1 .708 0z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="led-toast__content">
+                        <p class="led-toast__title">sucess :D</p>
+                        <p class="led-toast__message">Voce está fazendo tudo certo!</p>
+                    </div>
+                    <button class="led-toast__close" aria-label="Fechar notificação">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Toast de Warning -->
+                <div class="led-toast led-toast--warning" role="alert" aria-live="polite">
+                    <div class="led-toast__icon led-toast__icon--warning">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="led-toast__content">
+                        <p class="led-toast__title">Atenção</p>
+                        <p class="led-toast__message">Cuidado! Esqueceu de preencher o campo.</p>
+                    </div>
+                    <button class="led-toast__close" aria-label="Fechar notificação">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3>Controles Interativos</h3>
+            <div class="controls">
+                <button onclick="showToast('error')">Mostrar Toast de Erro</button>
+                <button onclick="showToast('success')">Mostrar Toast de Sucesso</button>
+                <button onclick="showToast('warning')">Mostrar Toast de Warning</button>
+                <button onclick="clearToasts()">Limpar Todos</button>
+            </div>
+            <div id="dynamic-toasts" class="toast-container"></div>
+        </div>
+
+        <div class="example-section">
+            <h3>Uso com React</h3>
+            <pre><code>import { Toast } from '@led-telecom/components';
+
+// Toast de erro
+&lt;Toast type="default" /&gt;
+
+// Toast de sucesso
+&lt;Toast type="success" /&gt;
+
+// Toast de warning
+&lt;Toast type="warning" /&gt;
+
+// Toast customizado
+&lt;Toast 
+    type="success" 
+    title="Operação realizada!" 
+    message="Os dados foram salvos com sucesso."
+    onClose={() => console.log('Toast fechado')}
+/&gt;</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function showToast(type) {
+            const container = document.getElementById('dynamic-toasts');
+            const toast = document.createElement('div');
+
+            let title, message, iconSvg;
+
+            switch (type) {
+                case 'success':
+                    title = 'sucess :D';
+                    message = 'Voce está fazendo tudo certo!';
+                    iconSvg = '<path d="M13.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.793l6.646-6.647a.5.5 0 0 1 .708 0z" fill="currentColor" />';
+                    break;
+                case 'warning':
+                    title = 'Atenção';
+                    message = 'Cuidado! Esqueceu de preencher o campo.';
+                    iconSvg = '<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="currentColor" />';
+                    break;
+                default:
+                    title = 'Error!';
+                    message = 'Que pena! Campo incorreto :(';
+                    iconSvg = '<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" fill="currentColor" />';
+            }
+
+            toast.className = `led-toast led-toast--${type === 'default' ? 'default' : type}`;
+            toast.setAttribute('role', 'alert');
+            toast.setAttribute('aria-live', 'polite');
+            toast.innerHTML = `
+                <div class="led-toast__icon led-toast__icon--${type === 'default' ? 'error' : type}">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        ${iconSvg}
+                    </svg>
+                </div>
+                <div class="led-toast__content">
+                    <p class="led-toast__title">${title}</p>
+                    <p class="led-toast__message">${message}</p>
+                </div>
+                <button class="led-toast__close" onclick="this.parentElement.remove()" aria-label="Fechar notificação">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" fill="currentColor" />
+                    </svg>
+                </button>
+            `;
+
+            container.appendChild(toast);
+        }
+
+        function clearToasts() {
+            document.getElementById('dynamic-toasts').innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>
