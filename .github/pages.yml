@@ -1,0 +1,19 @@
+# Configuração do GitHub Pages para LED Telecom Design System
+# Este arquivo é usado pelo GitHub Pages para configurar o deploy
+
+# Configurações específicas para o repositório Kavicki-com/led-telecom-designsystem
+repository: Kavicki-com/led-telecom-designsystem
+branch: gh-pages
+path: storybook-static
+
+# URL final do Storybook
+url: https://kavicki-com.github.io/led-telecom-designsystem
+
+# Configurações de build
+build_command: npm run build-storybook
+output_directory: storybook-static
+
+# Configurações de cache
+cache_directories:
+  - node_modules
+  - .storybook-static

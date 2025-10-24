@@ -21,7 +21,9 @@
         "test:coverage": "jest --coverage",
         "prepublishOnly": "npm run clean && npm run build",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "deploy-storybook": "node scripts/deploy-storybook.js",
+        "test-deploy": "node scripts/test-deploy.js"
     },
     "keywords": [
         "design-tokens",
