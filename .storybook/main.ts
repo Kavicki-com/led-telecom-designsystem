@@ -7,7 +7,9 @@ const config: StorybookConfig = {
     ],
     framework: {
         name: '@storybook/react-webpack5',
-        options: {},
+        options: {
+            fastRefresh: true,
+        },
     },
     docs: {
         autodocs: 'tag',
@@ -21,24 +23,29 @@ const config: StorybookConfig = {
         },
     },
     webpackFinal: async (config) => {
-        // Configuração para resolver extensões TypeScript
-        config.resolve.extensions.push('.ts', '.tsx');
+        // Adiciona o babel-loader para processar TypeScript
+        config.module = config.module || {};
+        config.module.rules = config.module.rules || [];
 
-        // Configuração para TypeScript
+        // Remove regras existentes de TypeScript
+        config.module.rules = config.module.rules.filter(
+            (rule) => !rule.test || (typeof rule.test === 'string' ? !rule.test.includes('ts') : true)
+        );
+
+        // Adiciona regra para TypeScript/TSX com babel-loader
         config.module.rules.push({
-            test: /\.tsx?$/,
+            test: /\.(ts|tsx)$/,
             exclude: /node_modules/,
-            use: [
-                {
-                    loader: 'ts-loader',
-                    options: {
-                        transpileOnly: true,
-                        compilerOptions: {
-                            jsx: 'react-jsx',
-                        },
-                    },
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        '@babel/preset-env',
+                        '@babel/preset-react',
+                        '@babel/preset-typescript',
+                    ],
                 },
-            ],
+            },
         });
 
         return config;

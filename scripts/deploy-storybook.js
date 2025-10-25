@@ -25,10 +25,17 @@ try {
     console.log('✅ Build do Storybook concluído com sucesso!');
     console.log('📁 Arquivos gerados em: ./storybook-static');
     console.log('');
-    console.log('🌐 Para fazer deploy manual:');
-    console.log('1. Faça commit dos arquivos em storybook-static/');
-    console.log('2. Configure GitHub Pages para usar a pasta storybook-static');
-    console.log('3. Ou use o workflow automático do GitHub Actions');
+    console.log('🌐 Para fazer deploy:');
+    console.log('1. Faça commit dos arquivos: git add . && git commit -m "Deploy Storybook"');
+    console.log('2. Push para o repositório: git push origin main');
+    console.log('3. O GitHub Actions fará o deploy automaticamente');
+    console.log('4. Acesse: https://led-telecom.github.io/design-tokens');
+    console.log('');
+    console.log('📋 Checklist do GitHub Pages:');
+    console.log('- ✅ Repositório público');
+    console.log('- ✅ GitHub Pages habilitado (Settings > Pages)');
+    console.log('- ✅ Source: GitHub Actions');
+    console.log('- ✅ Workflow: .github/workflows/deploy-storybook.yml');
 
 } catch (error) {
     console.error('❌ Erro durante o deploy:', error.message);
