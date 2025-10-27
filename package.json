@@ -66,10 +66,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/led-telecom/design-tokens.git"
+        "url": "https://github.com/Kavicki-com/led-telecom-designsystem.git"
     },
     "bugs": {
-        "url": "https://github.com/led-telecom/design-tokens/issues"
+        "url": "https://github.com/Kavicki-com/led-telecom-designsystem/issues"
     },
-    "homepage": "https://github.com/led-telecom/design-tokens#readme"
+    "homepage": "https://github.com/Kavicki-com/led-telecom-designsystem#readme"
 }
