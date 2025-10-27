@@ -33,7 +33,7 @@ try {
     console.log('1. Faça commit dos arquivos: git add . && git commit -m "Deploy Storybook"');
     console.log('2. Push para o repositório: git push origin main');
     console.log('3. O GitHub Actions fará o deploy automaticamente');
-    console.log('4. Acesse: https://led-telecom.github.io/design-tokens');
+    console.log('4. Acesse: https://kavicki-com.github.io/led-telecom-designsystem');
     console.log('');
     console.log('📋 Checklist do GitHub Pages:');
     console.log('- ✅ Repositório público');

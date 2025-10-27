@@ -37,7 +37,7 @@
 3. **Verifique o deploy:**
    - Acesse **Actions** tab no GitHub
    - Aguarde o workflow `Deploy Storybook to GitHub Pages` completar
-   - Acesse: `https://led-telecom.github.io/design-tokens`
+   - Acesse: `https://kavicki-com.github.io/led-telecom-designsystem`
 
 ### **Opção 2: Deploy Manual**
 
@@ -98,7 +98,7 @@ npm run build-storybook
 
 - **Status do Deploy**: GitHub > Actions
 - **Logs**: Clique no workflow para ver detalhes
-- **URL do Storybook**: `https://led-telecom.github.io/design-tokens`
+- **URL do Storybook**: `https://kavicki-com.github.io/led-telecom-designsystem`
 
 ## 🔄 Atualizações Automáticas
 
@@ -119,4 +119,5 @@ Para problemas com deploy:
 
 **Status**: ✅ Problemas identificados e corrigidos
 **Próximo passo**: Fazer commit e push para ativar o deploy automático
+**URL final**: `https://kavicki-com.github.io/led-telecom-designsystem`
 

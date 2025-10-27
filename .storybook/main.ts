@@ -55,6 +55,21 @@ const config: StorybookConfig = {
             },
         });
 
+        // Plugin para copiar .nojekyll para GitHub Pages
+        const CopyPlugin = require('copy-webpack-plugin');
+        config.plugins = config.plugins || [];
+        config.plugins.push(
+            new CopyPlugin({
+                patterns: [
+                    {
+                        from: '.nojekyll',
+                        to: '.nojekyll',
+                        noErrorOnMissing: true,
+                    },
+                ],
+            })
+        );
+
         return config;
     },
 };

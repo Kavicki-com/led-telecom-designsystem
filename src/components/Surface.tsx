@@ -110,10 +110,10 @@ export const Surface: React.FC<SurfaceProps> = ({
     const getSurfaceStyles = (): React.CSSProperties => {
         const customStyles: React.CSSProperties = {
             ...style,
-            '--led-surface-padding': `var(--padding-${padding}, 16px)`,
-            '--led-surface-gap': `var(--gap-${gap}, 16px)`,
-            '--led-surface-border-size': `var(--border-size-${borderSize}, 2px)`,
-            '--led-surface-border-radius': `var(--border-radius-${borderRadius}, 8px)`
+            ['--led-surface-padding' as any]: `var(--padding-${padding}, 16px)`,
+            ['--led-surface-gap' as any]: `var(--gap-${gap}, 16px)`,
+            ['--led-surface-border-size' as any]: `var(--border-size-${borderSize}, 2px)`,
+            ['--led-surface-border-radius' as any]: `var(--border-radius-${borderRadius}, 8px)`
         };
 
         if (width) {

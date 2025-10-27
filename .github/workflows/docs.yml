@@ -1,12 +1,14 @@
 name: Deploy Documentation
 
 on:
-  # Desabilitado temporariamente para evitar conflito com Storybook
+  # DESABILITADO: Este workflow está desabilitado para evitar conflito com o deploy do Storybook
+  # O GitHub Pages está configurado para usar apenas o Storybook via workflow deploy-storybook.yml
+  # Se precisar reativar este workflow, certifique-se de configurar paths diferentes para evitar conflitos
   # push:
   #   branches: [ main ]
   # pull_request:
   #   branches: [ main ]
-  workflow_dispatch: # Permite execução manual
+  workflow_dispatch: # Permite execução manual quando necessário
 
 jobs:
   build-and-deploy:
