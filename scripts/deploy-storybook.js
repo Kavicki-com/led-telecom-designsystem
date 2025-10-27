@@ -22,6 +22,10 @@ try {
         throw new Error('Build do Storybook não foi criado!');
     }
 
+    // 4. Criar arquivo .nojekyll para GitHub Pages
+    console.log('📄 Criando arquivo .nojekyll...');
+    fs.writeFileSync(path.join('storybook-static', '.nojekyll'), '');
+
     console.log('✅ Build do Storybook concluído com sucesso!');
     console.log('📁 Arquivos gerados em: ./storybook-static');
     console.log('');
