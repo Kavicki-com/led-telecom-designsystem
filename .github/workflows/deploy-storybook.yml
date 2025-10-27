@@ -37,14 +37,11 @@ jobs:
     - name: Build Storybook
       run: npm run build-storybook
       
-    - name: Create .nojekyll file
-      run: echo "" > storybook-static/.nojekyll
-      
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v4
       with:
         path: ./storybook-static
         
