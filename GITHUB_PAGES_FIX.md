@@ -119,3 +119,4 @@ Para problemas com deploy:
 
 **Status**: ✅ Problemas identificados e corrigidos
 **Próximo passo**: Fazer commit e push para ativar o deploy automático
+

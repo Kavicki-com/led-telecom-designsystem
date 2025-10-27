@@ -14,6 +14,12 @@ const config: StorybookConfig = {
     docs: {
         autodocs: 'tag',
     },
+    // Configuração para GitHub Pages
+    base: '/led-telecom-designsystem/',
+    managerHead: (head) => `
+        ${head}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    `,
     typescript: {
         check: false,
         reactDocgen: 'react-docgen-typescript',
@@ -47,6 +53,21 @@ const config: StorybookConfig = {
                 },
             },
         });
+
+        // Adiciona plugin para copiar .nojekyll para o build
+        const CopyPlugin = require('copy-webpack-plugin');
+        config.plugins = config.plugins || [];
+        config.plugins.push(
+            new CopyPlugin({
+                patterns: [
+                    {
+                        from: '.nojekyll',
+                        to: '.nojekyll',
+                        noErrorOnMissing: true,
+                    },
+                ],
+            })
+        );
 
         return config;
     },
